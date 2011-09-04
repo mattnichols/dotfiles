@@ -95,7 +95,8 @@ alias flushdns='dscacheutil -flushcache'
 
 # heroku
 function hcred() {
-  cat ~/.heroku/credentials | grep @
+  #cat ~/.heroku/credentials | grep @
+  . ~/.heroku/accounts/$1
 }
 
 

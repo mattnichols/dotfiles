@@ -73,3 +73,9 @@ setopt CORRECT CORRECT_ALL
 
 # Enable extended globbing
 setopt EXTENDED_GLOB
+
+# RVM
+[[ -s '/Users/mnichols/.rvm/scripts/rvm' ]] && source '/Users/mnichols/.rvm/scripts/rvm'
+
+# RVM
+[[ -s '/Users/mnichols/.rvm/scripts/rvm' ]] && source '/Users/mnichols/.rvm/scripts/rvm'

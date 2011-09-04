@@ -21,6 +21,10 @@ if [ -e "$HOME/.config" ]; then
   source "$HOME/.config"
 fi
 
+export NODE_PATH="/usr/local/lib/node/"
+
+export PATH=/usr/local/share/npm/bin:$PATH
+
 ##################################################
 # See other keybinding options here:
 # http://www.cs.elte.hu/zsh-manual/zsh_14.html

@@ -1,0 +1,2 @@
+# Command to update from thoughtbot's dotfile repo
+alias updatedotfiles="pushd ~/dotfiles&&git checkout upstream&&git pull&&git checkout master&&git rebase upstream"

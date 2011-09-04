@@ -8,12 +8,17 @@ compinit
 # automatically enter directories without cd
 setopt auto_cd
 
-# use vim as an editor
-export EDITOR=vim
+# use mate as an editor
+export EDITOR=mate
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
+fi
+
+# config
+if [ -e "$HOME/.config" ]; then
+  source "$HOME/.config"
 fi
 
 # vi mode
@@ -38,7 +43,12 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 setopt prompt_subst
 
 # prompt
-export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
+export PS1='[${SSH_CONNECTION+"%n@%m:"}%~]'
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export PS1='%m:%3~$(git_info_for_prompt)> '
+# else
+#   export PS1='%3~$(git_info_for_prompt)> '
+# fi
 
 # ignore duplicate history entries
 setopt histignoredups

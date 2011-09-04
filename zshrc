@@ -21,6 +21,10 @@ if [ -e "$HOME/.config" ]; then
   source "$HOME/.config"
 fi
 
+##################################################
+# See other keybinding options here:
+# http://www.cs.elte.hu/zsh-manual/zsh_14.html
+
 # vi mode
 bindkey -v
 bindkey "^F" vi-cmd-mode

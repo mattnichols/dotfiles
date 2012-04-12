@@ -1,0 +1,2 @@
+#compdef hset
+compadd `ls -1 ~/.dotfiles/heroku/ | sed s/credentials_//`

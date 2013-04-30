@@ -14,8 +14,8 @@ if [ -e "$HOME/.aliases" ]; then
 fi
 
 # config
-if [ -e "$HOME/.config" ]; then
-  source "$HOME/.config"
+if [ -e "$HOME/.configure" ]; then
+  source "$HOME/.configure"
 fi
 
 export NODE_PATH="/usr/local/lib/node/"
@@ -69,3 +69,5 @@ setopt EXTENDED_GLOB
 
 # RVM
 # [[ -s "/Volumes/HD/Home/.rvm/scripts/rvm" ]] && source "/Volumes/HD/Home/.rvm/scripts/rvm"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

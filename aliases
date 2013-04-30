@@ -16,6 +16,7 @@ alias ...='../..'
 alias l='ls'
 alias ll='ls -al'
 alias lh='ls -Alh'
+alias m='mate .'
 
 alias -g G='| grep'
 alias -g M='| less'

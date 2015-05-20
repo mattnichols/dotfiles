@@ -1,21 +1,8 @@
-alias migrate="rake db:migrate db:test:prepare"
 alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
-alias remongrate="rake mongoid:migrate && rake mongoid:migrate:redo"
-alias g="git"
-alias s="bundle exec rspec"
-alias cuc="bundle exec cucumber"
-alias gi="gem install"
-alias giv="gem install -v"
-alias gci="git pull --rebase && rake && git push"
 alias tlf="tail -f"
-alias b="bundle"
-alias be="bundle exec"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
 alias ...='../..'
-alias l='ls'
-alias ll='ls -al'
-alias lh='ls -Alh'
 alias m='mate .'
 
 alias -g G='| grep'
@@ -43,6 +30,8 @@ alias ls="ls -F"
 alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
+alias lh='ls -Alh'
+
 
 # git
 alias gl='git pull'
@@ -59,29 +48,40 @@ function gc() {
 	git commit -v -a -m "$*"
 }
 alias gi="mate .gitignore"
-alias gj="gitjour"
+alias gci="git pull --rebase && rake && git push"
 
 # rails
 alias sc='script/console'
 alias ss='script/server'
 alias sg='script/generate'
-alias a='autotest -rails'
-alias tlog='tail -f -n 100 log/development.log'
-alias twlog='tail -f -n 100 /private/var/log/apache2/error_log'
-alias scaffold='script/generate nifty_scaffold'
-alias migrate='rake db:migrate'
-alias rollback='rake db:rollback'
 alias sp='script/plugin'
 alias rss='script/services_stop;script/services_start;'
 alias sss='script/services_stop'
-alias rake='be rake'
-alias g='bundle exec guard'
 alias rc='rails c'
 alias rs='unicorn'
+
+alias a='autotest -rails'
+alias s="bundle exec rspec"
+alias cuc="bundle exec cucumber"
+
+alias tlog='tail -f -n 100 log/development.log'
+alias twlog='tail -f -n 100 /private/var/log/apache2/error_log'
+alias scaffold='script/generate nifty_scaffold'
+
+alias migrate="rake db:migrate db:test:prepare"
+alias rollback='rake db:rollback'
+
+alias rake='be rake'
+alias g='bundle exec guard'
+
 
 # ruby
 alias gemlist='gem list | cut -d" " -f1'
 alias gems-uninstall-all='gemlist | xargs gem uninstall -Iax'
+alias gi="gem install"
+alias giv="gem install -v"
+alias b="bundle"
+alias be="bundle exec"
 
 alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
 alias mysqlstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'

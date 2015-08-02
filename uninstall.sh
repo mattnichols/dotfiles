@@ -6,7 +6,7 @@ for name in *; do
   target="$HOME/.$name"
   if [ -e $target ]; then
     echo "Removing $target"
-    rm $target
+    rm -f $target
   fi
 done
 
@@ -20,5 +20,5 @@ uninstall_oh_my_zsh
 rm -Rf $HOME/.oh-my-zsh
 rm -Rf $HOME/.dotfiles
 
-chsh -s $(which bash)
+# chsh -s $(which bash)
 exit

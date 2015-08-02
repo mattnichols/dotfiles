@@ -11,7 +11,7 @@ brew update
 
 # Switch to Zsh
 brew install zsh
-if ['$SHELL' != '/bin/zsh']; then
+if [$SHELL != '/bin/zsh']; then
   chsh -s $(which zsh)
   zsh
 fi
@@ -67,12 +67,6 @@ echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo 'source "$HOME/.aliases"' >> "$HOME/.zshrc"
 echo 'source "$HOME/.configure"' >> "$HOME/.zshrc"
-#echo 'source "$HOME/.prompt"' >> "$HOME/.zshrc"
-
-# echo '' >> "$HOME/.zshrc"
-# echo 'autoload -U compinit' >> "$HOME/.zshrc"
-# echo 'compinit' >> "$HOME/.zshrc"
-# echo '' >> "$HOME/.zshrc"
 echo 'export EDITOR=subl' >> "$HOME/.zshrc"
 
 
@@ -81,6 +75,8 @@ echo Installing RVM...
 brew install gpg
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
+
+source "$HOME/.rvm/scripts/rvm"
 
 rvm install 2.2.0
 rvm system 2.2.0

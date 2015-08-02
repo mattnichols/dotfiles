@@ -1,35 +1,18 @@
-thoughtbot dotfiles
+zsh Dotfiles
 ===================
-
-Flow:
-
-* Fork this repo.
-* Clone your fork.
-* Install.
-* Track thoughtbot/dotfiles.
-* Customize in master.
-* Update.
 
 Install
 -------
 
-From your cloned directory:
+    curl -L https://raw.github.com/mattnichols/dotfiles/master/install.sh | sh
 
-    ./install.sh
 
-This will create symlinks for all config files in your home directory. You can
-safely run this file multiple times to update.
-
-Note that there is configuration for `zsh` so if you'd like to switch your shell from the default `bash` to `zsh`, on OS X you do:
-
-    chsh -s /bin/zsh
-
-Track thoughtbot/dotfiles
+Track mattnichols/dotfiles
 -------------------------
 
 One time:
 
-    git remote add upstream git@github.com:thoughtbot/dotfiles.git
+    git remote add upstream git@github.com:mattnichols/dotfiles.git
     git fetch upstream
     git checkout -b upstream upstream/master
 

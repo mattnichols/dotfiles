@@ -18,8 +18,7 @@ fi
 
 pushd "$HOME"
 git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
-
-
+pushd "$HOME/.dotfiles"
 
 # Link to .dotfiles
 cutstring="DO NOT EDIT BELOW THIS LINE"
@@ -55,6 +54,8 @@ for name in *; do
   fi
 done
 
+popd
+popd
 
 # Install Oh My ZSH
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh

@@ -62,7 +62,7 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 
 # Configure Oh My Zsh
 sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
-sed 's/(git)/(ruby rvm rails zsh_reload sublime bundler common-aliases)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
+sed 's/(git)/(git ruby rvm rails zsh_reload sublime bundler common-aliases)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo 'source "$HOME/.aliases"' >> "$HOME/.zshrc"

@@ -2,7 +2,6 @@ alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump 
 alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
-alias ...='../..'
 alias m='mate .'
 
 alias -g G='| grep'
@@ -22,6 +21,7 @@ alias ea="subl ~/.dotfiles/aliases"
 
 # cd
 alias ..='cd ..'
+alias ...='../..'
 
 
 # ls
@@ -86,7 +86,7 @@ alias %=' '
 # Utils
 alias flushdns='dscacheutil -flushcache'
 alias add_dock_space="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && killall Dock"
-
+alias uninstall_dotfiles="source ~/.dotfiles/uninstall.sh"
 
 # MX
 alias zmq='PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq'

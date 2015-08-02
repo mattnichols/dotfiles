@@ -1,10 +1,10 @@
 # makes color constants available
-autoload -U colors
-colors
+#autoload -U colors
+#colors
 
 # enable colored output from ls, etc
-export CLICOLOR=1
+#export CLICOLOR=1
 
-source ~/.dotfiles/prompt
+#source ~/.dotfiles/prompt
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

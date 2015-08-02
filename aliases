@@ -52,6 +52,7 @@ alias gs='git status'
 alias ga='git add .'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gi="mate .gitignore"
+unalias gc
 function gc() {
 	git commit -v -a -m "$*"
 }

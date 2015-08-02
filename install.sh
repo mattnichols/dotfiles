@@ -1,21 +1,5 @@
 #!/bin/sh
 
-if hash brew 2>/dev/null; then
-  echo "Homebrew is installed"
-else
-  echo "Installing Homebrew"
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
-echo "Updating brews..."
-brew update
-
-# Switch to Zsh
-brew install zsh
-if [$SHELL != '/bin/zsh']; then
-  chsh -s $(which zsh)
-  zsh
-fi
-
 pushd "$HOME"
 git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
 pushd "$HOME/.dotfiles"
@@ -43,7 +27,7 @@ for name in *; do
       fi
     fi
   else
-    if [[ $name != 'install.sh' ]]; then
+    if [[ $name != 'install.sh' && $name != 'uninstall.sh' ]]; then
       echo "Creating $target"
       if [[ -n `grep "$cutstring" "$name"` ]]; then
         cp "$PWD/$name" "$target"
@@ -67,20 +51,25 @@ echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo 'source "$HOME/.aliases"' >> "$HOME/.zshrc"
 echo 'source "$HOME/.configure"' >> "$HOME/.zshrc"
+echo 'source "$HOME/.prompt"' >> "$HOME/.zshrc"
 echo 'export EDITOR=subl' >> "$HOME/.zshrc"
 
 
 
 echo Installing RVM...
+if hash brew 2>/dev/null; then
+  echo "Homebrew is installed"
+else
+  echo "Installing Homebrew"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+echo "Updating brews..."
+brew update
 brew install gpg
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
+echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
 
 source "$HOME/.rvm/scripts/rvm"
-
-rvm install 2.2.0
-rvm system 2.2.0
-
-# Launch!
-zsh
-source ~/.zshrc
+zsh -c "source ~/.zshrc && rvm install 2.2.0"
+zsh -c "source ~/.zshrc && rvm system 2.2.0"

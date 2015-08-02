@@ -18,7 +18,7 @@ alias -g ONE="| awk '{ print \$1}'"
 	# Reload Aliases
 alias ra="source ~/.zshrc"
 	# Edit Aliases
-alias ea="mate -w ~/dotfiles/aliases && ra"
+alias ea="subl -w ~/dotfiles/ && ra"
 
 # cd
 alias ..='cd ..'
@@ -47,7 +47,7 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 function gc() {
 	git commit -v -a -m "$*"
 }
-alias gi="mate .gitignore"
+alias gitignore="touch .gitignore .ruby-version .ruby-gemset&&mate .gitignore&&mate .ruby-version&&mate .ruby-gemset"
 alias gci="git pull --rebase && rake && git push"
 
 # rails
@@ -59,6 +59,7 @@ alias rss='script/services_stop;script/services_start;'
 alias sss='script/services_stop'
 alias rc='rails c'
 alias rs='unicorn'
+alias start_mongodb='mongod --config /usr/local/etc/mongod.conf'
 
 alias a='autotest -rails'
 alias s="bundle exec rspec"

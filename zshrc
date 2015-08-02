@@ -69,5 +69,3 @@ setopt EXTENDED_GLOB
 
 # RVM
 # [[ -s "/Volumes/HD/Home/.rvm/scripts/rvm" ]] && source "/Volumes/HD/Home/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

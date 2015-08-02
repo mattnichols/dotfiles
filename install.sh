@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 if hash brew 2>/dev/null; then
   echo "Homebrew is installed"
 else
@@ -14,7 +13,12 @@ brew update
 brew install zsh
 if ['$SHELL' != '/bin/zsh']; then
   chsh -s $(which zsh)
+  zsh
 fi
+
+pushd "$HOME"
+git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
+
 
 
 # Link to .dotfiles
@@ -57,12 +61,11 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 
 # Configure Oh My Zsh
 sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
-sed 's/(git)/(ruby rails zsh_reload sublime bundler common-aliases)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
+sed 's/(git)/(ruby rvm rails zsh_reload sublime bundler common-aliases)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo 'source "$HOME/.aliases"' >> "$HOME/.zshrc"
-# echo 'fpath=("$HOME/.zsh/completion" $fpath)' >> "$HOME/.zshrc"
-# echo 'source "$HOME/.configure"' >> "$HOME/.zshrc"
+echo 'source "$HOME/.configure"' >> "$HOME/.zshrc"
 #echo 'source "$HOME/.prompt"' >> "$HOME/.zshrc"
 
 # echo '' >> "$HOME/.zshrc"
@@ -78,5 +81,9 @@ brew install gpg
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
 
+rvm install 2.2.0
+rvm system 2.2.0
+
 # Launch!
+zsh
 source ~/.zshrc

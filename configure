@@ -1,6 +1,3 @@
-# Command to update from thoughtbot's dotfile repo
-alias updatedotfiles="pushd ~/dotfiles&&git checkout upstream&&git pull&&git checkout master&&git rebase upstream&&popd"
+fpath=(~/.dotfiles/zsh/functions $fpath)
 
-fpath=(~/dotfiles/zsh/functions $fpath)
-
-autoload -U ~/dotfiles/zsh/functions/*(:t)
+autoload -U ~/.dotfiles/zsh/functions/*(:t)

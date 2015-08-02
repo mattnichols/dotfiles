@@ -20,10 +20,10 @@ PROMPT='
 ${smiley} %{$reset_color%}'
 
 # Prompt for RVM
-RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(~/dotfiles/zsh/prompt/git-cwd-info)%{$reset_color%}'
+RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(~/.dotfiles/zsh/prompt/git-cwd-info)%{$reset_color%}'
 
 # Prompt using rbenv
-# RPROMPT='%{$fg[white]%} $(rbenv version-name)$(~/dotfiles/zsh/prompt/git-cwd-info)%{$reset_color%}'
+# RPROMPT='%{$fg[white]%} $(rbenv version-name)$(~/.dotfiles/zsh/prompt/git-cwd-info)%{$reset_color%}'
 
 # RPROMPT='welcome'
 

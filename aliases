@@ -18,7 +18,7 @@ alias -g ONE="| awk '{ print \$1}'"
 	# Reload Aliases
 alias ra="source ~/.zshrc"
 	# Edit Aliases
-alias ea="subl ~/dotfiles/aliases"
+alias ea="subl ~/.dotfiles/aliases"
 
 # cd
 alias ..='cd ..'

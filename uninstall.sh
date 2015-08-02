@@ -20,3 +20,4 @@ uninstall_oh_my_zsh
 rm -Rf $HOME/.oh-my-zsh
 
 chsh -s $(which bash)
+exit

@@ -18,6 +18,7 @@ rm -f $HOME/.zcomp*
 rm -Rf $HOME/.rvm
 uninstall_oh_my_zsh
 rm -Rf $HOME/.oh-my-zsh
+rm -Rf $HOME/.dotfiles
 
 chsh -s $(which bash)
 exit

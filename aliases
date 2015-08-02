@@ -18,12 +18,12 @@ alias -g ONE="| awk '{ print \$1}'"
 	# Reload Aliases
 alias ra="source ~/.zshrc"
 	# Edit Aliases
-alias ea="mate -w ~/dotfiles/aliases && ra"
+alias ea="subl ~/dotfiles/aliases"
+
 
 # cd
 alias ..='cd ..'
-alias cdtag="cd ~/Code/tagcow/web"
-alias cdgag="cd ~/Code/guessanygame"
+
 
 # ls
 alias ls="ls -F"
@@ -33,7 +33,14 @@ alias la='ls -A'
 alias lh='ls -Alh'
 
 
+# Text editor
+alias mate='subl'
+alias sd='subl .'
+alias sda='subl -a .'
+
+
 # git
+alias gf='git fetch origin --prune'
 alias gl='git pull'
 alias gp='git push'
 alias gph='git push heroku'
@@ -41,60 +48,46 @@ alias gd='git diff'
 alias gca='git commit -a'
 alias gco='git checkout'
 alias gb='git branch'
+alias gnb='git checkout -b'
 alias gs='git status'
 alias ga='git add .'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias gi="mate .gitignore"
 function gc() {
 	git commit -v -a -m "$*"
 }
-alias gi="mate .gitignore"
-alias gci="git pull --rebase && rake && git push"
+
 
 # rails
-alias sc='script/console'
-alias ss='script/server'
-alias sg='script/generate'
-alias sp='script/plugin'
-alias rss='script/services_stop;script/services_start;'
-alias sss='script/services_stop'
-alias rc='rails c'
-alias rs='unicorn'
-
-alias a='autotest -rails'
+alias rc='be rails console'
+alias rs='be rails server'
 alias s="bundle exec rspec"
-alias cuc="bundle exec cucumber"
-
-alias tlog='tail -f -n 100 log/development.log'
-alias twlog='tail -f -n 100 /private/var/log/apache2/error_log'
-alias scaffold='script/generate nifty_scaffold'
-
 alias migrate="rake db:migrate db:test:prepare"
 alias rollback='rake db:rollback'
-
 alias rake='be rake'
-alias g='bundle exec guard'
+alias tlog='tail -f -n 100 log/development.log'
 
 
 # ruby
 alias gemlist='gem list | cut -d" " -f1'
 alias gems-uninstall-all='gemlist | xargs gem uninstall -Iax'
 alias gi="gem install"
-alias giv="gem install -v"
 alias b="bundle"
 alias be="bundle exec"
+alias bx='bundle exec'
+alias mri='rvm use 2.2@${PWD##*/} --create'
 
-alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
-alias mysqlstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
 
 # commands starting with % for pasting from web
 alias %=' '
 
+
+# Utils
 alias flushdns='dscacheutil -flushcache'
-
-# heroku
-function hcred() {
-  #cat ~/.heroku/credentials | grep @
-  . ~/.heroku/accounts/$1
-}
-
 alias add_dock_space="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && killall Dock"
+
+
+# MX
+alias zmq='PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq'
+alias mrs='zmq be rails server'
+alias mrc='zmq be rails console'

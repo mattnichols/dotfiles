@@ -6,7 +6,7 @@ autoload -U compinit
 compinit
 
 # use mate as an editor
-export EDITOR=mate
+export EDITOR=subl
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
@@ -21,6 +21,7 @@ fi
 export NODE_PATH="/usr/local/lib/node/"
 
 export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=$PATH:~/bin
 
 ##################################################
 # See other keybinding options here:
@@ -67,5 +68,4 @@ export dirstacksize=5
 # Enable extended globbing
 setopt EXTENDED_GLOB
 
-# RVM
-# [[ -s "/Volumes/HD/Home/.rvm/scripts/rvm" ]] && source "/Volumes/HD/Home/.rvm/scripts/rvm"
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

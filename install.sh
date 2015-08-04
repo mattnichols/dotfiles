@@ -56,7 +56,7 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 
 # Configure Oh My Zsh
 sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
-sed 's/(git)/(ruby rvm rails zsh_reload sublime bundler common-aliases)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
+sed 's/(git)/(ruby rvm rails zsh_reload sublime bundler common-aliases z osx)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo 'source "$HOME/.aliases"' >> "$HOME/.zshrc"
@@ -72,15 +72,38 @@ if hash brew 2>/dev/null; then
 else
   echo "Installing Homebrew"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  chmod 755 /usr/local/lib/node_modules
 fi
+
 echo "Updating brews..."
 brew update
+sudo chown -R $USER /usr/local
 brew install gpg
+brew install wget
+brew install node
+npm install --global trash
+
+echo "Installing RVM..."
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
 echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
+
+
+
+# wget https://nodejs.org/dist/v0.12.7/node-v0.12.7-darwin-x64.tar.gz
+# gzip -d node-v0.12.7-darwin-x64.tar.gz
+# tar xvf node-v0.12.7-darwin-x64.tar
+# pushd node-v0.12.7-darwin-x64
+# ./configure
+# make
+# make install
+# popd
+
+npm install --global trash
 
 source "$HOME/.rvm/scripts/rvm"
 zsh -c "source ~/.zshrc && rvm install 2.2.0"
 zsh -c "source ~/.zshrc && rvm system 2.2.0"
 zsh -c "source ~/.zshrc && rvm use 2.2.0 && rvm @global do gem install bundler"
+
+

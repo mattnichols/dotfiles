@@ -34,4 +34,4 @@ alias %=' '
 # Utils
 alias flushdns='dscacheutil -flushcache'
 alias add_dock_space="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && killall Dock"
-alias uninstall_dotfiles="source ~/.dotfiles/uninstall.sh"
+alias uninstall_dotfiles="source ~/.dotfiles/tools/uninstall.sh"

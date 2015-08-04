@@ -1,5 +1,5 @@
 fpath=(~/.dotfiles/zsh/functions $fpath)
-#autoload -U ~/.dotfiles/zsh/functions/*(:t)
+autoload -U ~/.dotfiles/zsh/functions/*(:t)
 
 # Show completion on first TAB
 setopt menucomplete

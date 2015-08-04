@@ -13,10 +13,10 @@ rm "$HOME/.profile"
 rm "$HOME/.bash*"
 rm "$HOME/.zsh*"
 rm "$HOME/.zcomp*"
-rm -R "$HOME/.rvm"
+rm -Rf "$HOME/.rvm"
 uninstall_oh_my_zsh
-rm -R "$HOME/.oh-my-zsh"
-rm -R "$HOME/.dotfiles"
+rm -Rf "$HOME/.oh-my-zsh"
+rm -Rf "$HOME/.dotfiles"
 
 popd
 

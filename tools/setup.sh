@@ -41,10 +41,6 @@ popd
 # Git
 git config --global core.excludesfile ~/.gitignore_global
 
-
-# Install Oh My ZSH
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-
 # Configure Oh My Zsh
 sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 sed 's/(git)/(light-rails light-git light-utils bundler mx zsh_reload rvm ruby osx z)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"

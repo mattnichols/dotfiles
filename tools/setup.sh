@@ -48,7 +48,7 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 # Configure Oh My Zsh
 sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 sed 's/(git)/(light-rails light-git light-utils bundler mx zsh_reload rvm ruby osx z)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
-sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.dotfiles/custom@" "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
+sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.zsh_custom@" "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo 'source "$HOME/.configure"' >> "$HOME/.zshrc"

@@ -60,14 +60,9 @@ sed 's/(git)/(light-rails light-git light-utils bundler mx zsh_reload rvm ruby z
 sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.dotfiles/custom@" "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
-echo 'source "$HOME/.aliases"' >> "$HOME/.zshrc"
 echo 'source "$HOME/.configure"' >> "$HOME/.zshrc"
-echo 'source "$HOME/.prompt"' >> "$HOME/.zshrc"
 echo 'export EDITOR=subl' >> "$HOME/.zshrc"
 
-
-
-echo Installing RVM...
 if hash brew 2>/dev/null; then
   echo "Homebrew is installed"
 else
@@ -88,19 +83,6 @@ echo "Installing RVM..."
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
 echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
-
-
-
-# wget https://nodejs.org/dist/v0.12.7/node-v0.12.7-darwin-x64.tar.gz
-# gzip -d node-v0.12.7-darwin-x64.tar.gz
-# tar xvf node-v0.12.7-darwin-x64.tar
-# pushd node-v0.12.7-darwin-x64
-# ./configure
-# make
-# make install
-# popd
-
-npm install --global trash
 
 source "$HOME/.rvm/scripts/rvm"
 zsh -c "source ~/.zshrc && rvm install 2.2.0"

@@ -9,11 +9,12 @@ for name in *; do
   fi
 done
 
-rm "$HOME/.profile"
 rm "$HOME/.bash*"
 rm "$HOME/.zsh*"
 rm "$HOME/.zcomp*"
+rm "$HOME/.z"
 rm -Rf "$HOME/.rvm"
+
 uninstall_oh_my_zsh
 rm -Rf "$HOME/.oh-my-zsh"
 rm -Rf "$HOME/.dotfiles"

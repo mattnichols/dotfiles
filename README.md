@@ -4,7 +4,7 @@ zsh Dotfiles
 Install
 -------
 
-    curl -L https://raw.github.com/mattnichols/dotfiles/master/install.sh | sh
+    curl -L https://raw.github.com/mattnichols/dotfiles/master/tools/install.sh | sh
 
 
 Track mattnichols/dotfiles

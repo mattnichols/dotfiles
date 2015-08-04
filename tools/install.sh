@@ -10,9 +10,6 @@ if [ -e "$HOME/.dotfiles" ]; then
   exit
 fi
 
-# Install Oh My ZSH
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-
 pushd "$HOME"
 git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
 popd

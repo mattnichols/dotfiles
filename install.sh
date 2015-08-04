@@ -14,4 +14,4 @@ pushd "$HOME"
 git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
 popd
 
-source "$HOME/.dotfiles"
+source "$HOME/.dotfiles/setup.sh"

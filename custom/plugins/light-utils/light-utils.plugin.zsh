@@ -14,7 +14,8 @@ alias ea="subl ~/.dotfiles/plugins"
 
 # Directories
 unalias ls
-alias ls="ls -F"
+alias ls="ls -FG"
+alias l='ls -alG'
 alias mkdir='mkdir -p'
 
 
@@ -34,6 +35,3 @@ alias %=' '
 alias flushdns='dscacheutil -flushcache'
 alias add_dock_space="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && killall Dock"
 alias uninstall_dotfiles="source ~/.dotfiles/uninstall.sh"
-
-# Safety Net
-alias rm='trash'

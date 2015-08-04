@@ -5,18 +5,18 @@ for name in *; do
   target="$HOME/.$name"
   if [ -e $target ]; then
 	  echo "Removing $target"
-    rm "$target"
+    /bin/rm "$target"
   fi
 done
 
-rm "$HOME/.profile"
-rm "$HOME/.bash*"
-rm "$HOME/.zsh*"
-rm "$HOME/.zcomp*"
-rm -Rf "$HOME/.rvm"
+/bin/rm "$HOME/.profile"
+/bin/rm "$HOME/.bash*"
+/bin/rm "$HOME/.zsh*"
+/bin/rm "$HOME/.zcomp*"
+/bin/rm -Rf "$HOME/.rvm"
 uninstall_oh_my_zsh
-rm -Rf "$HOME/.oh-my-zsh"
-rm -Rf "$HOME/.dotfiles"
+/bin/rm -Rf "$HOME/.oh-my-zsh"
+/bin/rm -Rf "$HOME/.dotfiles"
 
 popd
 

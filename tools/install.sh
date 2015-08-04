@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -e "$HOME/.dotfiles" ]; then
   echo ""

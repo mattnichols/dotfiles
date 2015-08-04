@@ -1,1 +1,0 @@
-ln -sf ~/.dotfiles/heroku/credentials_$1 ~/.heroku/credentials

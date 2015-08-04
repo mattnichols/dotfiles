@@ -10,6 +10,8 @@
 # Colors
 autoload -U colors
 colors
+
+# Turn on substitution in prompt
 setopt prompt_subst
 
 # Prompt
@@ -27,10 +29,3 @@ RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(~/.dotfiles/zsh/prompt/git-cwd
 
 # RPROMPT='welcome'
 
-
-# Show completion on first TAB
-setopt menucomplete
-
-# Load completions for Ruby, Git, etc.
-autoload compinit
-compinit

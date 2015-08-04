@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for name in *; do
+for name in ~/.dotfiles/*; do
   target="$HOME/.$name"
   if [ -e $target ]; then
     echo "Removing $target"
@@ -8,16 +8,15 @@ for name in *; do
   fi
 done
 
-rm -f $HOME/.profile
-rm -f $HOME/.bash*
-rm -f $HOME/.zsh*
-rm -f $HOME/.zcomp*
+rm -f ~/.profile
+rm -f ~/.bash*
+rm -f ~/.zsh*
+rm -f ~/.zcomp*
 
-rm -Rf $HOME/.rvm
+rm -Rf ~/.rvm
 uninstall_oh_my_zsh
-rm -Rf $HOME/.oh-my-zsh
-rm -Rf $HOME/.dotfiles
+rm -Rf ~/.oh-my-zsh
+rm -Rf ~/.dotfiles
 
-#chsh -s $(which bash)
 echo "Relaunch Terminal!!"
 exit

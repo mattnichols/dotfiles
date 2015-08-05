@@ -13,5 +13,11 @@ colors
 
 #export CLICOLOR=1
 #zstyle ':completion:*:default' list-colors ''
-
 #zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+
+# awesome cd movements from zshkit
+# automatically enter directories without cd
+setopt AUTOCD
+setopt AUTOPUSHD PUSHDMINUS PUSHDSILENT PUSHDTOHOME
+setopt CDABLEVARS
+export dirstacksize=5

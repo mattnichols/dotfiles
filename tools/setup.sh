@@ -51,7 +51,7 @@ sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.zsh_custom@" "$HOME/.zshrc" > ~/.tmpfi
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo 'source "$HOME/.configure"' >> "$HOME/.zshrc"
-echo 'export EDITOR=subl' >> "$HOME/.zshrc"
+echo 'export EDITOR="~/bin/subl -w"' >> "$HOME/.zshrc"
 
 if hash brew 2>/dev/null; then
   echo "Homebrew is installed"

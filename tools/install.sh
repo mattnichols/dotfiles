@@ -11,7 +11,8 @@ if [ -e "$HOME/.dotfiles" ]; then
 fi
 
 pushd "$HOME"
-git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
+# git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
+git clone https://github.com/mattnichols/dotfiles.git "$HOME/.dotfiles"
 popd
 
 . "$HOME/.dotfiles/tools/setup.sh"

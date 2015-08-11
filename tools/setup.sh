@@ -46,7 +46,7 @@ git config --global core.excludesfile ~/.gitignore_global
 
 # Configure Oh My Zsh
 sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
-sed 's/(git)/(light-rails light-git light-utils bundler mx zsh_reload rvm osx z terminalapp sublime themes)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
+sed 's/(git)/(light-rails light-git light-utils bundler mx zsh_reload rvm osx terminalapp sublime themes)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.zsh_custom@" "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
@@ -67,16 +67,12 @@ brew install gpg
 brew install wget
 brew install node
 npm install --global trash
+brew install z
 
 echo "Installing RVM..."
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
+echo '`brew --prefix`/etc/profile.d/z.sh' >> "$HOME/.zshrc"
 echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
-
-source ~/.zshrc
-
-rvm install 2.2.0
-rvm system 2.2.0
-rvm use 2.2.0 && rvm @global do gem install bundler
 
 echo "Setup Complete!"

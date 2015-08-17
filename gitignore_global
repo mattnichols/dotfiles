@@ -1,1 +1,4 @@
 .rake_tasks~
+bin/spring
+bin/rspec
+*.DS_Store

@@ -9,7 +9,7 @@ alias -g ONE="| awk '{ print \$1}'"
 	# Reload RC
 alias ra="source ~/.zshrc"
 	# Edit Aliases
-alias ea="subl -a ~/.dotfiles/plugins"
+alias ea="subl -a ~/.dotfiles"
 
 
 # Directories
@@ -35,3 +35,8 @@ alias %=' '
 alias flushdns='dscacheutil -flushcache'
 alias add_dock_space="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && killall Dock"
 alias uninstall_dotfiles="source ~/.dotfiles/tools/uninstall.sh"
+
+# Process controls
+# Setup
+# brew tap homebrew/services
+# brew services stop|start postgres...

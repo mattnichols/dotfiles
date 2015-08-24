@@ -8,4 +8,4 @@ alias bx='be'
 
 alias sidekiq_batcave='igd zmq sidekiq -q batcave'
 
-alias activate_spring="source ~/.dotfiles/zsh_custom/plugins/activate_spring.sh $@"
+alias activate_spring="source ~/.dotfiles/zsh_custom/plugins/mx/activate_spring.sh $@"

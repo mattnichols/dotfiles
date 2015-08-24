@@ -1,5 +1,8 @@
 #! /bin/sh
 
+echo "ruby-2.2.1" > .ruby-version
+rvm use ruby-2.2.1
+
 if cat Gemfile | grep -q "spring-commands-rspec"; then
   echo "Dependencies already in gemfile"
 else
@@ -13,13 +16,11 @@ else
   echo "gem 'rspec-rails', :group => :development" >> Gemfile
   echo "gem 'guard-rspec', :group => :development" >> Gemfile
   echo "gem 'rb-fsevent', :group => :development" >> Gemfile
+  echo "gem 'terminal-notifier-guard', :group => :development" >> Gemfile
 
   bundle
   spring binstub --all
 fi
-
-echo "ruby-2.2.1" > .ruby-version
-rvm use ruby-2.2.1
 
 spring stop
 rails g

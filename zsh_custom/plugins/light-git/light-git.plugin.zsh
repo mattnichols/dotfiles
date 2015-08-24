@@ -57,4 +57,4 @@ alias gi="mate .gitignore"
 function gc() {
 	git commit -v -a -m "$*"
 }
-alias gitignore="touch .gitignore .ruby-version .ruby-gemset&&mate .gitignore&&mate .ruby-version&&mate .ruby-gemset"
+alias git_purge="git reset --hard&&git clean -f&&git checkout master&&gf&&gl"

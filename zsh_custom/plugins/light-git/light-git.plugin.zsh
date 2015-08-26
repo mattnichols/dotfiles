@@ -46,7 +46,6 @@ alias gl='git pull'
 alias gp='git push'
 alias gph='git push heroku'
 alias gd='git diff'
-alias gca='git commit -a'
 alias gco='git checkout'
 alias gb='git branch'
 alias gnb='git checkout -b'
@@ -55,6 +54,10 @@ alias ga='git add .'
 alias grm="git ls-files --deleted | xargs git rm -f"
 alias gi="mate .gitignore"
 function gc() {
-	git commit -v -a -m "$*"
+  git commit -v -m "$*"
+}
+unalias gca
+function gca() {
+  git commit -v -a -m "$*"
 }
 alias git_purge="git reset --hard&&git clean -f&&git checkout master&&gf&&gl"

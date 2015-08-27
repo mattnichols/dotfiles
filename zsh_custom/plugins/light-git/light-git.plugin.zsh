@@ -56,7 +56,6 @@ alias gi="mate .gitignore"
 function gc() {
   git commit -v -m "$*"
 }
-unalias gca
 function gca() {
   git commit -v -a -m "$*"
 }

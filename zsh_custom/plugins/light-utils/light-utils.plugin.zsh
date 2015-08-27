@@ -40,8 +40,6 @@ function ipaddr() {
 }
 
 
-
-
 # Process controls
 # Setup
 # brew tap homebrew/services

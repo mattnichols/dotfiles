@@ -1,0 +1,12 @@
+gemfile = IO.read('Gemfile')
+gemfile << %q(
+
+gem 'spring-commands-rspec', :group => :development
+gem 'rspec-rails', :group => :development
+gem 'guard-rspec', :group => :development
+gem 'rb-fsevent', :group => :development
+gem 'terminal-notifier-guard', :group => :development
+
+)
+
+eval(gemfile, binding)

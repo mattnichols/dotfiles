@@ -4,7 +4,7 @@
 
 if [[ -a "Gemfile.local" ]]; then
   echo "Dev dependencies already in place"
-  ln -s ~/.dotfiles/zsh_custom/plugins/light-rails/Gemfile.local ./Gemfile.local
+  ln -s ~/.dotfiles/zsh_custom/plugins/light-rails/Gemfile.local.ln ./Gemfile.local
 fi
 
 echo "Running bundle install..."

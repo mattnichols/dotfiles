@@ -3,6 +3,7 @@
 # Protobuf switches
 alias zmq='PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq'
 alias igd='PB_IGNORE_DEPRECATIONS=1'
+alias pigd='export igd'
 
 # JRuby optimizations
 alias jitless='JRUBY_OPTS="$JRUBY_OPTS -J-Djruby.compile.mode=OFF -J-Djruby.jit.enabled=false"'
@@ -18,9 +19,6 @@ alias sbx='super bx'
 alias mrs='turbo zmq bx rails server'
 alias mrc='turbo zmq bx rails console'
 alias sidekiq_batcave='igd zmq sidekiq -q batcave'
-
-# Activate dev dependencies
-alias activate_spring="source ~/.dotfiles/zsh_custom/plugins/mx/activate_spring.sh $@"
 
 echo Ignoring Protobuf Deprecation Warnings...
 export PB_IGNORE_DEPRECATIONS=1

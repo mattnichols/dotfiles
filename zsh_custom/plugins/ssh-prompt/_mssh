@@ -1,0 +1,37 @@
+#compdef mssh
+
+#compadd -P spec/ -S _spec.rb `ls spec/**/*_spec.rb | sed -E "s/spec\/|_spec\.rb//g"`
+
+#_mssh() {
+#  local curcontext="$curcontext" state line
+#  typeset -A opt_args
+#
+#  _arguments \
+#    '1: :->env'\
+#    '*: :->svrclass'
+#
+#
+#  case $state in
+#  env)
+#    _arguments '1:Environments:(sand qa)'
+#  ;;
+#  *)
+#    case $words[2] in
+#      sand)
+#        compadd "$@" abacus amigo batcave synchronicity grunt
+#        ;;
+#      *)
+#      _files
+#    esac
+#  esac
+#
+#}
+#
+#_mssh "@$"
+
+
+_mssh() {
+  compadd sa-sand-abacus1 sa-sand-batcave1 po-qa-batcave1 po-qa-abacus1 po-qa-synchronicity1
+}
+
+

@@ -18,3 +18,5 @@ setopt AUTOCD
 setopt AUTOPUSHD PUSHDMINUS PUSHDSILENT PUSHDTOHOME
 setopt CDABLEVARS
 export dirstacksize=5
+
+export DISABLE_AUTO_TITLE=true

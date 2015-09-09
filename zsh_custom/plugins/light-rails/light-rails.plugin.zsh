@@ -1,15 +1,29 @@
 # bundler
-function bb() {
-	if [[ -a "Gemfile.local" ]]; then
-		echo "Running Gemfile.local"
-		bundle --gemfile=Gemfile.local $*
-	else
-		echo "You need to run devup command"
-	fi
+function b() {
+  if [[ -a "Gemfile.local" ]]; then
+    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    echo ">>    Running Gemfile.local"
+    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    BUNDLE_GEMFILE=Gemfile.local bundle $*
+  else
+    bundle $*
+  fi
 }
-alias b='bundle'
+
+# function bb() {
+# 	if [[ -a "Gemfile.local" ]]; then
+# 		echo "Running Gemfile.local"
+# 		bundle --gemfile=Gemfile.local $*
+# 	else
+# 		echo "You need to run devup command"
+# 	fi
+# }
+
+alias bundle="b"
 alias be="b exec"
-alias bx='b exec'
+alias bx='be'
 
 # rails
 alias rc='rails console'

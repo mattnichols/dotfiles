@@ -52,7 +52,6 @@ alias gnb='git checkout -b'
 alias gs='git status'
 alias ga='git add .'
 alias grm="git ls-files --deleted | xargs git rm -f"
-alias gi="mate .gitignore"
 function gc() {
   git commit -v -m "$*"
 }
@@ -60,3 +59,7 @@ function gca() {
   git commit -v -a -m "$*"
 }
 alias git_purge="git reset --hard&&git clean -f&&git checkout master&&gf&&gl"
+
+# Require git-smart gem
+alias gup='git smart-pull'
+alias gg='git smart-log'

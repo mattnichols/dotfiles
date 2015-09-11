@@ -1,6 +1,7 @@
 gemfile = IO.read('Gemfile')
 gemfile << %q(
 
+gem 'bullet'
 gem 'spring-commands-rspec', :group => :development
 gem 'guard-rspec', :group => :development
 gem 'rb-fsevent', :group => :development

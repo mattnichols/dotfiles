@@ -4,6 +4,7 @@
 
 if [[ -a "Gemfile.local" ]]; then
   echo "Dev dependencies already in place"
+else
   ln -s ~/.dotfiles/zsh_custom/plugins/light-rails/Gemfile.local.ln ./Gemfile.local
 fi
 

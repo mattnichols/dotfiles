@@ -27,7 +27,5 @@
 [push]
   # Only push branches that have been set up to track a remote branch.
   default = current
-[user]
-  email = matt@nichols.name
 [core]
   excludesfile = /Users/mnichols/.gitignore_global

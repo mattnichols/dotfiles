@@ -46,7 +46,7 @@ git config --global core.excludesfile ~/.gitignore_global
 
 # Configure Oh My Zsh
 sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
-sed 's/(git)/(light-rails light-git light-utils bundler mx zsh_reload rvm z osx terminalapp sublime themes)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
+sed 's/(git)/(bundler zsh_reload rvm z osx terminalapp sublime themes light-rails light-git light-utils mx)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.zsh_custom@" "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
@@ -74,5 +74,13 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 curl -sSL https://get.rvm.io | bash -s stable
 # echo '`brew --prefix`/etc/profile.d/z.sh' >> "$HOME/.zshrc"
 echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
+
+echo "bundler" >> ~/.rvm/gemsets/global.gems
+echo "omglog" >> ~/.rvm/gemsets/global.gems
+echo "git-smart" >> ~/.rvm/gemsets/global.gems
+echo "wirble" >> ~/.rvm/gemsets/global.gems
+
+rvm install 2.2.0
+
 
 echo "Setup Complete!"

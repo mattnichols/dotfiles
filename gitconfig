@@ -28,4 +28,9 @@
   # Only push branches that have been set up to track a remote branch.
   default = current
 [core]
-  excludesfile = /Users/mnichols/.gitignore_global
+	excludesfile = /Users/mnichols/.gitignore_global
+[init]
+  templatedir = ~/.dotfiles/git/templates
+[user]
+  name = matthew-nichols
+  email = "(none)"

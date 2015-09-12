@@ -66,6 +66,7 @@ brew update
 brew install gpg
 brew install wget
 brew install node
+brew install tree
 npm install --global trash
 brew install z
 
@@ -75,6 +76,7 @@ curl -sSL https://get.rvm.io | bash -s stable
 # echo '`brew --prefix`/etc/profile.d/z.sh' >> "$HOME/.zshrc"
 echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
 
+source "$HOME/.rvm/scripts/rvm"
 echo "bundler" >> ~/.rvm/gemsets/global.gems
 echo "omglog" >> ~/.rvm/gemsets/global.gems
 echo "git-smart" >> ~/.rvm/gemsets/global.gems

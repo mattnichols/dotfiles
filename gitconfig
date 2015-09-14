@@ -31,7 +31,7 @@
 	excludesfile = /Users/mnichols/.gitignore_global
   editor = vim
 [init]
-  templatedir = ~/.dotfiles/git/templates
+  templatedir = ~/.dotfiles/git_template
 [user]
   name = matthew-nichols
   email = "(none)"

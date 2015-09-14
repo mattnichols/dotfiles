@@ -13,6 +13,8 @@
   current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
   # Usage: git track origin/feature-123-login-form
   track = checkout -t
+  sp = smart-pull
+  sl = smart-log
 [apply]
   whitespace = warn
 [color]

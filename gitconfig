@@ -1,5 +1,3 @@
-# Copy this file or single lines to ~/.gitconfig
-
 [alias]
   co = checkout
   # Log display from screencast, with train tracks.
@@ -31,8 +29,13 @@
   default = current
 [core]
 	excludesfile = /Users/mnichols/.gitignore_global
+  editor = vim
 [init]
   templatedir = ~/.dotfiles/git/templates
 [user]
   name = matthew-nichols
   email = "(none)"
+[rerere]
+  enabled = 1
+[branch]
+  autosetuprebase = always

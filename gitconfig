@@ -34,8 +34,9 @@
   templatedir = ~/.dotfiles/git_template
 [user]
   name = matthew-nichols
-  email = "(none)"
+  email = "matthew.nichols@mx.com"
 [rerere]
   enabled = 1
 [branch]
   autosetuprebase = always
+	autosetrebase = always

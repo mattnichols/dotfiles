@@ -84,5 +84,9 @@ echo "wirble" >> ~/.rvm/gemsets/global.gems
 
 rvm install 2.2.0
 
+rvm wrapper ruby-2.2.0@global --no-prefix omglog
+rvm wrapper ruby-2.2.0@global --no-prefix git-smart-pull
+rvm wrapper ruby-2.2.0@global --no-prefix git-smart-merge
+rvm wrapper ruby-2.2.0@global --no-prefix git-smart-log
 
 echo "Setup Complete!"

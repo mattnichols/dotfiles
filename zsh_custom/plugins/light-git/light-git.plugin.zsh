@@ -51,7 +51,6 @@ alias gb='git branch'
 alias gnb='git checkout -b'
 alias gs='git status'
 alias ga='git add .'
-alias gbrt='~/.dotfiles/zsh_custom/plugins/light-git/gbrt.rb'
 alias grm="git ls-files --deleted | xargs git rm -f"
 function gc() {
   git commit -v -m "$*"

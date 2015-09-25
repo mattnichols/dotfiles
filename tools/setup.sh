@@ -81,6 +81,7 @@ echo "bundler" >> ~/.rvm/gemsets/global.gems
 echo "omglog" >> ~/.rvm/gemsets/global.gems
 echo "git-smart" >> ~/.rvm/gemsets/global.gems
 echo "wirble" >> ~/.rvm/gemsets/global.gems
+echo "fit-commit" >> ~/.rvm/gemsets/global.gems
 
 rvm install 2.2.0
 

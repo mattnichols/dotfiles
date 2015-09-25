@@ -42,7 +42,7 @@ function work_in_progress() {
 
 # Aliases
 alias gf='git fetch origin --prune'
-alias gl='git pull'
+alias gl='git smart-pull'
 alias gp='git push'
 alias gph='git push heroku'
 alias gd='git diff'

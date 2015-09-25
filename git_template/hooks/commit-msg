@@ -2,6 +2,7 @@
 #
 # This hook will attempt to setup your environment before running checks.
 
+export PATH=~/.rvm/gems/ruby-2.2.0/bin:~/.rvm/bin:$PATH
 if which rvm > /dev/null 2>&1
 then cmd="rvm default do ruby"
 elif which rbenv > /dev/null 2>&1

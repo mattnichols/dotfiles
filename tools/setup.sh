@@ -81,7 +81,6 @@ echo "bundler" >> ~/.rvm/gemsets/global.gems
 echo "omglog" >> ~/.rvm/gemsets/global.gems
 echo "git-smart" >> ~/.rvm/gemsets/global.gems
 echo "wirble" >> ~/.rvm/gemsets/global.gems
-echo "fit-commit" >> ~/.rvm/gemsets/global.gems
 
 rvm install 2.2.0
 
@@ -89,5 +88,6 @@ rvm wrapper ruby-2.2.0@global --no-prefix omglog
 rvm wrapper ruby-2.2.0@global --no-prefix git-smart-pull
 rvm wrapper ruby-2.2.0@global --no-prefix git-smart-merge
 rvm wrapper ruby-2.2.0@global --no-prefix git-smart-log
+rvm default do gem install fit-commit
 
 echo "Setup Complete!"

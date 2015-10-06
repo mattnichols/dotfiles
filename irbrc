@@ -67,3 +67,46 @@ end
 
 ## Notify us of the version and that it is ready.
 puts "Ruby #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL} (#{RUBY_RELEASE_DATE}) #{RUBY_PLATFORM}"
+
+class Object
+  # list methods which aren't in superclass
+  def local_methods(obj = self)
+    (obj.methods - obj.class.superclass.instance_methods).sort
+  end
+
+    # print documentation
+  #
+  #   ri 'Array#pop'
+  #   Array.ri
+  #   Array.ri :pop
+  #   arr.ri :pop
+  def ri(method = nil)
+    unless method && method =~ /^[A-Z]/ # if class isn't specified
+      klass = self.kind_of?(Class) ? name : self.class.name
+      method = [klass, method].compact.join('#')
+    end
+    system 'ri', method.to_s
+  end
+end
+
+def copy(str)
+  IO.popen('pbcopy', 'w') { |f| f << str.to_s }
+end
+
+def copy_history
+  history = Readline::HISTORY.entries
+  index = history.rindex("exit") || -1
+  content = history[(index+1)..-2].join("\n")
+  puts content
+  copy content
+end
+
+def paste
+  `pbpaste`
+end
+
+account_guid = "ACT-f717187e-4c35-4cac-682c-e8d7fa704661"
+user_guid = "USR-af8a898d-fc44-2d8d-57b4-482b9a4d2552"
+institution_guid = "INS-MANUAL-cb5c-1d48-741c-b30f4ddd1730"
+member_guid = "MBR-bbbf731d-85d0-6478-2a39-cb26e875a4ba"
+

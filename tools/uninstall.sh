@@ -9,7 +9,15 @@ for name in *; do
   fi
 done
 
+rm "$HOME/.ackrc*"
 rm "$HOME/.bash*"
+rm "$HOME/.configure*"
+rm "$HOME/.gemrc*"
+rm "$HOME/.gitconfig*"
+rm "$HOME/.gitignore_global*"
+rm "$HOME/.irbrc*"
+rm "$HOME/.vimrc*"
+rm "$HOME/.zlogin*"
 rm "$HOME/.zsh*"
 rm "$HOME/.zcomp*"
 rm "$HOME/.z"
@@ -22,4 +30,3 @@ rm -Rf "$HOME/.dotfiles"
 popd
 
 echo "Relaunch Terminal!!"
-#exit

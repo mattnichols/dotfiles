@@ -50,5 +50,4 @@ alias dup="source ~/.dotfiles/zsh_custom/plugins/light-rails/devup.sh $@"
 alias dwn="source ~/.dotfiles/zsh_custom/plugins/light-rails/devdown.sh $@"
 alias rails='bx rails'
 alias rspec='bx rspec'
-alias spring='bx spring'
 alias guard='bx guard'

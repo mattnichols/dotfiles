@@ -67,6 +67,7 @@ brew install gpg
 brew install wget
 brew install node
 brew install tree
+brew install terminal-notifier
 npm install --global trash
 brew install z
 

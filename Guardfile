@@ -6,7 +6,7 @@
 #  .select{|d| Dir.exists?(d) ? d : UI.warning("Directory #{d} does not exist")}
 
 ## Note: if you are using the `directories` clause above and you are not
-## watching the project directory ('.'), then you will want to move
+## watching the project directory ("."), then you will want to move
 ## the Guardfile to a watched dir and symlink it back, e.g.
 #
 #  $ mkdir config
@@ -17,15 +17,17 @@
 
 # Note: The cmd option is now required due to the increasing number of ways
 #       rspec may be run, below are examples of the most common uses.
-#  * bundler: 'bundle exec rspec'
-#  * bundler binstubs: 'bin/rspec'
-#  * spring: 'bin/rspec' (This will use spring if running and you have
+#  * bundler: "bundle exec rspec"
+#  * bundler binstubs: "bin/rspec"
+#  * spring: "bin/rspec" (This will use spring if running and you have
 #                          installed the spring binstubs per the docs)
-#  * zeus: 'zeus rspec' (requires the server to be started separately)
-#  * 'just' rspec: 'bin/rspec'
+#  * zeus: "zeus rspec" (requires the server to be started separately)
+#  * "just" rspec: "bin/rspec"
 
-group :red_green_refactor, halt_on_fail: true do
-  guard :rspec, cmd: "spring rspec" do
+guard "zeus", :cli => "> /dev/null"
+
+group :red_green_refactor, :halt_on_fail => true do
+  guard :rspec, cmd: "zeus rspec" do
     require "guard/rspec/dsl"
     dsl = Guard::RSpec::Dsl.new(self)
 

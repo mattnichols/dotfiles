@@ -1,5 +1,8 @@
 # MX
 
+# Setup
+alias mx_setup="source ~/.dotfiles/zsh_custom/plugins/mx/setup.sh $@"
+
 # Protobuf switches
 alias zmq='PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq'
 alias igd='PB_IGNORE_DEPRECATIONS=1'

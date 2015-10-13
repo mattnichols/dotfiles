@@ -9,7 +9,7 @@ alias -g ONE="| awk '{ print \$1}'"
 	# Reload RC
 alias ra="source ~/.zshrc"
 	# Edit Aliases
-alias ea="subl -a ~/.dotfiles"
+alias ea="subl -a ~/.dotfiles ~/.zshrc"
 
 
 # Directories

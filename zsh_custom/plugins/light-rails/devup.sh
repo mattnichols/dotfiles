@@ -27,3 +27,4 @@ echo "# --DEVUP" >> Gemfile
 bundle install --no-cache
 
 echo "vendor/cache" >> .gitignore
+rubocop -a

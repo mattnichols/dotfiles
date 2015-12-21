@@ -13,6 +13,8 @@
   track = checkout -t
   cv = !git ls-files --deleted vendor | xargs git rm -f&&git add vendor
   p = smart-pull
+  # Clean out merged branches
+  cb = !git branch --merged master | grep -v 'master$'| grep -v 'qa$' | xargs git branch -d
 [apply]
   whitespace = warn
 [color]

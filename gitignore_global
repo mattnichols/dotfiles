@@ -5,3 +5,4 @@ bin/rspec
 Gemfile.local
 Gemfile.local.lock
 zeus.log
+Guardfile

@@ -48,6 +48,6 @@ alias druby='rvm use `cat .ruby-version`@`cat .ruby-gemset`'
 # DevUp shims
 alias dup="source ~/.dotfiles/zsh_custom/plugins/light-rails/devup.sh $@"
 alias dwn="source ~/.dotfiles/zsh_custom/plugins/light-rails/devdown.sh $@"
-alias rails='bx rails'
+alias rails='rails'
 alias rspec='bx rspec'
 alias guard='bx guard'

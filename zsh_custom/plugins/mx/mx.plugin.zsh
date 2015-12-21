@@ -26,6 +26,9 @@ alias sidekiq_batcave='igd zmq sidekiq -q batcave'
 echo Ignoring Protobuf Deprecation Warnings...
 export PB_IGNORE_DEPRECATIONS=1
 
+echo Skipping Firebolt Warnings...
+export FIREBOLT_SKIP_WARNING=1
+
 alias atlas='c atlas'
 alias abacus='c abacus'
 alias amigo='c amigo'
@@ -36,5 +39,6 @@ alias persona='c persona'
 alias firefly='c firefly'
 alias synchro='c synchronicity'
 alias persona='c persona'
+alias ranger='c ranger'
 
 alias rpc='PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq bundle exec rpc_server --threads=4 --zmq-inproc --broadcast-beacons --host=`ipaddr` --port=30000 ./config/environment.rb'

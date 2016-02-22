@@ -20,10 +20,9 @@ alias mkdir='mkdir -p'
 
 
 # Text editor
-alias m='atom .'
-alias mate='atom'
+alias a='atom'
 alias sda='atom -a .'
-
+alias st='atom'
 alias start_mongodb='mongod --config /usr/local/etc/mongod.conf'
 
 

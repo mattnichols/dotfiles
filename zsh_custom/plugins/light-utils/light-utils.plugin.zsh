@@ -9,7 +9,7 @@ alias -g ONE="| awk '{ print \$1}'"
 	# Reload RC
 alias ra="source ~/.zshrc"
 	# Edit Aliases
-alias ea="subl -a ~/.dotfiles ~/.zshrc"
+alias ea="atom -a ~/.dotfiles ~/.zshrc"
 
 
 # Directories
@@ -20,9 +20,9 @@ alias mkdir='mkdir -p'
 
 
 # Text editor
-alias m='subl .'
-alias mate='subl'
-alias sda='subl -a .'
+alias m='atom .'
+alias mate='atom'
+alias sda='atom -a .'
 
 alias start_mongodb='mongod --config /usr/local/etc/mongod.conf'
 
@@ -44,3 +44,8 @@ function ipaddr() {
 # Setup
 # brew tap homebrew/services
 # brew services stop|start postgres...
+
+
+alias dm='docker-machine'
+alias dc='docker-compose'
+alias dk='docker'

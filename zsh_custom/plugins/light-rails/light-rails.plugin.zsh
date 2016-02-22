@@ -1,27 +1,4 @@
-# bundler
-function b() {
-  if [[ -a "Gemfile.local" ]]; then
-    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    echo ">>    Running Gemfile.local"
-    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    BUNDLE_GEMFILE=Gemfile.local bundle $*
-  else
-    bundle $*
-  fi
-}
-
-# function bb() {
-# 	if [[ -a "Gemfile.local" ]]; then
-# 		echo "Running Gemfile.local"
-# 		bundle --gemfile=Gemfile.local $*
-# 	else
-# 		echo "You need to run devup command"
-# 	fi
-# }
-
-alias bundle="b"
+alias b='bundle'
 alias be="b exec"
 alias bx='be'
 
@@ -51,3 +28,5 @@ alias dwn="source ~/.dotfiles/zsh_custom/plugins/light-rails/devdown.sh $@"
 alias rails='rails'
 alias rspec='bx rspec'
 alias guard='bx guard'
+
+alias bundler-multicore='number_of_cores=$(sysctl -n hw.ncpu)&&bundle config --global jobs $((number_of_cores - 1))'

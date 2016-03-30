@@ -1,0 +1,44 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "0aac2af4-19c6-4bbd-82aa-647a8058ad86"
+  core:
+    disabledPackages: [
+      "vim-mode"
+    ]
+    ignoredNames: [
+      "tmp"
+    ]
+    openEmptyEditorOnStart: false
+    themes: [
+      "one-dark-ui"
+      "cobalt2-syntax"
+    ]
+  editor:
+    fontSize: 20
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "17feff3d-60cf-792a-a6ae-5419269982e1"
+  "merge-conflicts": {}
+  "ruby-test":
+    rspecAllCommand: "source ~/.zshrc&&rspec --tty spec"
+    rspecFileCommand: "source ~/.zshrc&&rspec --tty {relative_path}"
+    rspecSingleCommand: "source ~/.zshrc&&rspec --tty {relative_path}:{line_number}"
+    shell: "zsh"
+  "status-bar": {}
+  "tab-smart-sort":
+    placeSpecialTabsOnRight: true
+  tabs: {}
+  "tabs-to-spaces":
+    onSave: "untabify"
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+".erb.html.text":
+  editor:
+    showIndentGuide: false
+".ruby.source":
+  editor:
+    showIndentGuide: true

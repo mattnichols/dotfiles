@@ -9,6 +9,7 @@ for name in *; do
   fi
 done
 
+# Implode RVM
 rvm implode --force
 
 # Unistall homebrew

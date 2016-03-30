@@ -81,6 +81,8 @@ curl -sSL https://get.rvm.io | bash -s stable
 # echo '`brew --prefix`/etc/profile.d/z.sh' >> "$HOME/.zshrc"
 echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
 
+# For some reason this does not allow use of rvm while the script is running
+#  after the script runs, this works in the same terminal session. ??
 source "$HOME/.rvm/scripts/rvm"
 echo "bundler" >> ~/.rvm/gemsets/global.gems
 echo "omglog" >> ~/.rvm/gemsets/global.gems

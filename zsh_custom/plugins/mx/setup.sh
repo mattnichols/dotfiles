@@ -18,5 +18,7 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 brew install rabbitmq
 brew install protobuf
 brew install imagemagick
+brew install ansible
+brew install ant
 
 ln -s /usr/local/opt/zeromq3/lib/*.dylib /usr/local/lib/

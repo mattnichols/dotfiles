@@ -34,7 +34,6 @@ rm -Rf "$HOME/.oh-my-zsh"
 rm -Rf "$HOME/.dotfiles"
 
 popd
-chsh -s /bin/sh
-env /bin/sh
+chsh -s /bin/bash
 
 echo "Relaunch Terminal!!"

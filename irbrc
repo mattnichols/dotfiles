@@ -89,6 +89,16 @@ class Object
   end
 end
 
+class Hash
+  def to_query
+    q = self.map do |k, v|
+      "#{k.gsub("-","_")}=#{v}"
+    end.join("&")
+
+    URI.escape(q)
+  end
+end
+
 def copy(str)
   IO.popen('pbcopy', 'w') { |f| f << str.to_s }
 end
@@ -105,8 +115,21 @@ def paste
   `pbpaste`
 end
 
-account_guid = "ACT-f717187e-4c35-4cac-682c-e8d7fa704661"
-user_guid = "USR-af8a898d-fc44-2d8d-57b4-482b9a4d2552"
-institution_guid = "INS-MANUAL-cb5c-1d48-741c-b30f4ddd1730"
-member_guid = "MBR-bbbf731d-85d0-6478-2a39-cb26e875a4ba"
+def generate_hmac(user_guid = "USR-af8a898d-fc44-2d8d-57b4-482b9a4d2552")
+  user = ::User.find(:guid => user_guid)
+  client_mobile_profile = ::ClientMobileProfile.find(:client_guid => user.client_guid)
+  expires_at = ::Time.current.utc + 10.minutes
 
+  token = "nonce|#{user.external_guid}|#{user.guid}|#{expires_at.to_i}"
+  hmac = ::Base64.urlsafe_encode64(::OpenSSL::HMAC.digest("sha1", client_mobile_profile.header_hmac_digest_key, ::Base64.urlsafe_encode64(token)))
+
+  {
+    "MX-USER-GUID-TOKEN" => token,
+    "MX-USER-GUID-HMAC" => hmac
+  }
+end
+
+@account_guid = "ACT-f717187e-4c35-4cac-682c-e8d7fa704661"
+@user_guid = "USR-af8a898d-fc44-2d8d-57b4-482b9a4d2552"
+@institution_guid = "INS-MANUAL-cb5c-1d48-741c-b30f4ddd1730"
+@member_guid = "MBR-bbbf731d-85d0-6478-2a39-cb26e875a4ba"

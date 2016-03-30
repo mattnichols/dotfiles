@@ -6,10 +6,10 @@ alias -g ONE="| awk '{ print \$1}'"
 
 
 # aliases
-	# Reload RC
+  # Reload RC
 alias ra="source ~/.zshrc"
-	# Edit Aliases
-alias ea="atom -a ~/.dotfiles ~/.zshrc"
+  # Edit Aliases
+alias ea="atom -n ~/.dotfiles ~/.zshrc"
 
 
 # Directories

@@ -51,7 +51,7 @@ sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.zsh_custom@" "$HOME/.zshrc" > ~/.tmpfi
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo 'source "$HOME/.configure"' >> "$HOME/.zshrc"
-echo 'export EDITOR="~/bin/subl -w"' >> "$HOME/.zshrc"
+echo 'export EDITOR="~/bin/atom -w"' >> "$HOME/.zshrc"
 
 if hash brew 2>/dev/null; then
   echo "Homebrew is installed"
@@ -62,12 +62,15 @@ else
 fi
 
 echo "Updating brews..."
+brew tap caskroom/cask
 brew update
 brew install gpg
 brew install wget
 brew install node
 brew install tree
 brew install terminal-notifier
+brew install Caskroom/cask/atom
+brew cask install google-chrome
 npm install --global trash
 brew install z
 

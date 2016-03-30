@@ -41,4 +41,15 @@ alias synchro='c synchronicity'
 alias persona='c persona'
 alias ranger='c ranger'
 
-alias rpc='PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq bundle exec rpc_server --threads=4 --zmq-inproc --broadcast-beacons --host=`ipaddr` --port=30000 ./config/environment.rb'
+# alias rpc='PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq bundle exec rpc_server --threads=4 --zmq-inproc --broadcast-beacons --host=`ipaddr` --port=30000 ./config/environment.rb'
+rpc() {
+  port=$1
+  [[ $port == "" ]] && port="30000"
+  echo "Starting on port $port"
+  PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq bundle exec rpc_server --threads=4 --zmq-inproc --broadcast-beacons --host=`ipaddr` --port=$port ./config/environment.rb
+}
+alias asub='zmq bx action_subscriber start'
+
+kill_rails(){
+  lsof -i :3000 | grep 'TCP' | awk '{print $2}' | xargs kill -9
+}

@@ -4,6 +4,7 @@
   core:
     disabledPackages: [
       "vim-mode"
+      "language-gfm"
     ]
     ignoredNames: [
       "tmp"

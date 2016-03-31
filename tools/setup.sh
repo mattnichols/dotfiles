@@ -105,4 +105,5 @@ source "$HOME/.rvm/scripts/rvm"
 # rvm wrapper ruby-2.2.0@global --no-prefix ~/.dotfiles/zsh_custom/plugins/light-git/gbrt
 # rvm default do gem install fit-commit
 
+source $HOME/.dotfiles/tools/setup_rvm.sh
 echo "run 'source $HOME/.dotfiles/tools/setup_rvm.sh'"

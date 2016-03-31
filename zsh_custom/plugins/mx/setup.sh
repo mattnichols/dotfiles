@@ -1,10 +1,6 @@
 #! /bin/sh
 
 # MX Setup script
-
-brew uninstall zeromq
-brew install homebrew/versions/zeromq3
-
 brew install mongodb
 ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
@@ -21,9 +17,13 @@ brew install rabbitmq
 ln -sfv /usr/local/opt/rabbitmq/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
 
+brew install zeromq
 brew install protobuf
 brew install imagemagick
 brew install ansible
 brew install ant
 
-ln -s /usr/local/opt/zeromq3/lib/*.dylib /usr/local/lib/
+# This once solved an issue running batcave locally. Doesn't seem to work anymore.
+# brew uninstall zeromq
+# brew install homebrew/versions/zeromq3
+# ln -s /usr/local/opt/zeromq3/lib/*.dylib /usr/local/lib/

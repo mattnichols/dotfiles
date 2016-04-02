@@ -10,8 +10,13 @@ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
 brew install postgresql
+rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres
+mkdir /var/pgsql_socket/
+ln -s /private/tmp/.s.PGSQL.5432 /var/pgsql_socket/
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+createuser -s postgres
+
 
 brew install rabbitmq
 ln -sfv /usr/local/opt/rabbitmq/*.plist ~/Library/LaunchAgents

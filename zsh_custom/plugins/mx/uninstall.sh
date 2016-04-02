@@ -5,6 +5,8 @@ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
 
+rm -Rf /usr/local/var/postgres
+
 brew uninstall zeromq3
 brew uninstall zeromq
 

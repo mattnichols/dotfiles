@@ -15,7 +15,7 @@
       "cobalt2-syntax"
     ]
   editor:
-    fontSize: 20
+    fontSize: 19
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true

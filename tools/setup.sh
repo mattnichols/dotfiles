@@ -81,6 +81,7 @@ apm install ruby-test-switcher
 apm install language-markdown
 apm install markdown-preview-plus
 apm install git-time-machine
+apm install copy-path
 
 echo "Installing RVM..."
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
@@ -91,6 +92,8 @@ echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
 # For some reason this does not allow use of rvm while the script is running
 #  after the script runs, this works in the same terminal session. ??
 source "$HOME/.rvm/scripts/rvm"
+rvm reload
+
 # echo "bundler" >> ~/.rvm/gemsets/global.gems
 # echo "omglog" >> ~/.rvm/gemsets/global.gems
 # echo "git-smart" >> ~/.rvm/gemsets/global.gems
@@ -106,4 +109,5 @@ source "$HOME/.rvm/scripts/rvm"
 # rvm default do gem install fit-commit
 
 source $HOME/.dotfiles/tools/setup_rvm.sh
+
 echo "run 'source $HOME/.dotfiles/tools/setup_rvm.sh'"

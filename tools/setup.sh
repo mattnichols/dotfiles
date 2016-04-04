@@ -82,6 +82,8 @@ apm install language-markdown
 apm install markdown-preview-plus
 apm install git-time-machine
 apm install copy-path
+apm install ruby-test
+apm install highlight-selected
 
 echo "Installing RVM..."
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3

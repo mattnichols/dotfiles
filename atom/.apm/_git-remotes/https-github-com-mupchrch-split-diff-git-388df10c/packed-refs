@@ -3,6 +3,8 @@
 3f009f93d6e61537d9a90bce711da16becfe45bb refs/pull/20/head
 2b9e5c5eb729bc6ac328d7438032a37e1ed8168b refs/pull/21/head
 237314cb10a93e4ab3fe0f9fef130b874a1d3719 refs/pull/23/head
+22c5db73a267bfa8fb2099732aaeffdc9acc956c refs/pull/24/head
+8ea5e96620476dba955ce8faf06fbd66fe4448d7 refs/pull/24/merge
 d0e201684c8d128c32c672a47c7192011f4778ea refs/tags/v0.1.0
 ^25b76bbdf4aaa109c34bb64516e9795da71ce310
 a9cc0f584628b96ccdf65b3b5bb53cc09e9c51b2 refs/tags/v0.2.0

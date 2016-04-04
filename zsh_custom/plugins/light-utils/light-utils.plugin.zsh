@@ -10,7 +10,9 @@ alias -g ONE="| awk '{ print \$1}'"
 alias ra="source ~/.zshrc"
   # Edit Aliases
 alias ea="atom -n ~/.dotfiles ~/.zshrc"
-
+function dotfile_development() {
+  sed 's/https:\/\//git@/' "$HOME/.dotfiles/.git/config" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.dotfiles/.git/config"
+}
 
 # Directories
 unalias ls

@@ -10,3 +10,4 @@ bundle install
 git checkout .gitignore
 git clean -f ./cache
 git clean -f ./vendor
+rvm use .

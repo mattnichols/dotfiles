@@ -74,6 +74,7 @@ brew cask install google-chrome
 npm install --global trash
 brew install z
 brew install zsh
+brew install watchman
 
 apm install cobalt2-syntax
 apm install ruby-block
@@ -84,6 +85,8 @@ apm install git-time-machine
 apm install copy-path
 apm install ruby-test
 apm install highlight-selected
+apm install rails-latest-migration
+apm install language-protobuf
 
 # Setup VIM (with vundle)
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

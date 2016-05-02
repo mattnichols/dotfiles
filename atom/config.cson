@@ -36,6 +36,7 @@
   welcome:
     showOnStartup: false
   whitespace:
+    ensureSingleTrailingNewline: false
     ignoreWhitespaceOnCurrentLine: false
 ".erb.html.text":
   editor:

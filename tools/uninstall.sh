@@ -28,6 +28,7 @@ rm "$HOME/.zsh*"
 rm "$HOME/.zcomp*"
 rm "$HOME/.z"
 rm -Rf "$HOME/.atom"
+rm -Rf "$HOME/.bundle"
 
 uninstall_oh_my_zsh
 rm -Rf "$HOME/.oh-my-zsh"

@@ -13,11 +13,15 @@ echo rvm_auto_reload_flag=2 >> ~/.rvmrc
 # echo "omglog" >> ~/.rvm/gemsets/global.gems
 # echo "git-smart" >> ~/.rvm/gemsets/global.gems
 # echo "wirble" >> ~/.rvm/gemsets/global.gems
-version=2.2.1
+version=2.2.4
 
 rvm install $version
 rvm use $version --default
 rvm ruby-`echo $version` do gem install bundler
+
+# Setup bundler to use all but 1 CPU
+number_of_cores=`sysctl -n hw.ncpu`
+bundle config --global jobs `expr $number_of_cores - 1`
 
 rvm ruby-`echo $version`@global do gem install omglog
 rvm ruby-`echo $version`@global do gem install git-smart

@@ -8,13 +8,6 @@ alias zmq='PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq'
 alias igd='PB_IGNORE_DEPRECATIONS=1'
 alias pigd='export igd'
 
-# JRuby optimizations
-alias jitless='JRUBY_OPTS="$JRUBY_OPTS -J-Djruby.compile.mode=OFF -J-Djruby.jit.enabled=false"'
-alias jit='JRUBY_OPTS="$JRUBY_OPTS -J-Djruby.compile.mode=JIT -J-Djruby.jit.enabled=true"'
-alias jp='JRUBY_OPTS="$JRUBY_OPTS --profile.api"'
-alias turbo='JRUBY_OPTS="$JRUBY_OPTS --dev"'
-alias super='JRUBY_OPTS="--2.0 --dev"'
-
 # Rails
 alias bx='be'
 alias tbx='turbo bx'
@@ -46,10 +39,12 @@ rpc() {
   port=$1
   [[ $port == "" ]] && port="30000"
   echo "Starting on port $port"
-  PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq bundle exec rpc_server --threads=4 --zmq-inproc --broadcast-beacons --host=`ipaddr` --port=$port ./config/environment.rb
+  PB_CLIENT_TYPE=zmq PB_SERVER_TYPE=zmq bundle exec rpc_server --threads=4 --zmq-inproc --host=0.0.0.0 --port=$port ./config/environment.rb
 }
 alias asub='zmq bx action_subscriber start'
 
 kill_rails(){
   lsof -i :3000 | grep 'TCP' | awk '{print $2}' | xargs kill -9
 }
+
+alias sshmux="source ~/.dotfiles/zsh_custom/plugins/mx/sshmux $@"

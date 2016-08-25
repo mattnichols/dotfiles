@@ -95,7 +95,7 @@ vim +PluginInstall +qall
 
 echo "Installing RVM..."
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable --with-gems="bundler,git-smart,omglog,wirble,hirb"
+curl -sSL https://get.rvm.io | bash -s stable --with-gems="bundler,git-smart,omglog,irbtools,hirb"
 # echo '`brew --prefix`/etc/profile.d/z.sh' >> "$HOME/.zshrc"
 echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
 

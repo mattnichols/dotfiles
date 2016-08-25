@@ -10,17 +10,11 @@ IRB.conf[:SAVE_HISTORY] = 200
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
 IRB.conf[:AUTO_INDENT]  = true
 
-
 begin
-  require 'wirble'
-
-  Wirble.init
-  Wirble.colorize
+  require 'irbtools'
 rescue LoadError => err
-  warn "Unable to load Wirble: #{err} (run: rvm @global do gem install wirble)"
+  warn "Unable to load irbtools: #{err} (run: rvm @global do gem install irbtools)"
 end
-
-
 
 ### Rails
 # Some features that make using irb for rails much nicer.

@@ -50,3 +50,6 @@ function ipaddr() {
 alias dm='docker-machine'
 alias dc='docker-compose'
 alias dk='docker'
+
+alias postgresql_kill='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist&&sleep 5&&rm /usr/local/var/postgres/postmaster.pid'
+alias postgresql_start='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist'

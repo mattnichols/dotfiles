@@ -1,4 +1,18 @@
 "*":
+  "atom-alignment":
+    alignBy: [
+      "=>"
+      ":="
+      ":"
+      "="
+      "#"
+    ]
+    alignmentSpaceChars: [
+      "=>"
+      ":="
+      "="
+      "#"
+    ]
   "atom-beautify":
     _analyticsUserId: "0aac2af4-19c6-4bbd-82aa-647a8058ad86"
   core:

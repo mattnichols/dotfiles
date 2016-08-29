@@ -2,6 +2,6 @@
 function rvmi() {
   rvm install `cat .ruby-version`
   rvm use .
-  gem install bundler
+  rvm @global do gem install bundler
   bundle install
 }

@@ -30,6 +30,16 @@ rm "$HOME/.z"
 rm -Rf "$HOME/.atom"
 rm -Rf "$HOME/.bundle"
 
+## Uninstall Java
+sudo rm -rf /Library/Java/JavaVirtualMachines/*.jdk
+sudo rm -rf /Library/PreferencePanes/JavaControlPanel.prefPane
+sudo rm -rf /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin
+sudo rm -rf /Library/LaunchAgents/com.oracle.java.Java-Updater.plist
+sudo rm -rf /Library/PrivilegedHelperTools/com.oracle.java.JavaUpdateHelper
+sudo rm -rf /Library/LaunchDaemons/com.oracle.java.JavaUpdateHelper.plist
+sudo rm -rf /Library/Preferences/com.oracle.java.Helper-Tool.plist
+#################
+
 uninstall_oh_my_zsh
 rm -Rf "$HOME/.oh-my-zsh"
 rm -Rf "$HOME/.dotfiles"

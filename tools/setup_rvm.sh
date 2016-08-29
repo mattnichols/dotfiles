@@ -13,11 +13,11 @@ echo rvm_auto_reload_flag=2 >> ~/.rvmrc
 # echo "omglog" >> ~/.rvm/gemsets/global.gems
 # echo "git-smart" >> ~/.rvm/gemsets/global.gems
 # echo "wirble" >> ~/.rvm/gemsets/global.gems
-version=2.2.4
+version=2.3.1
 
 rvm install $version
 rvm use $version --default
-rvm ruby-`echo $version` do gem install bundler
+rvm ruby-`echo $version`@global do gem install bundler
 
 # Setup bundler to use all but 1 CPU
 number_of_cores=`sysctl -n hw.ncpu`
@@ -25,7 +25,8 @@ bundle config --global jobs `expr $number_of_cores - 1`
 
 rvm ruby-`echo $version`@global do gem install omglog
 rvm ruby-`echo $version`@global do gem install git-smart
-rvm ruby-`echo $version`@global do gem install wirble
+rvm ruby-`echo $version`@global do gem install hirb
+rvm ruby-`echo $version`@global do gem install irbtools
 
 rvm wrapper ruby-`echo $version`@global --no-prefix omglog
 rvm wrapper ruby-`echo $version`@global --no-prefix git-smart-pull
@@ -33,12 +34,13 @@ rvm wrapper ruby-`echo $version`@global --no-prefix git-smart-merge
 rvm wrapper ruby-`echo $version`@global --no-prefix git-smart-log
 rvm wrapper ruby-`echo $version`@global --no-prefix ~/.dotfiles/zsh_custom/plugins/light-git/gbrt
 
-rvm default do gem install fit-commit
+#rvm default do gem install fit-commit
 
 # Still need to implement a solution for bundler binstubs missing
 
 # JRuby
 version=jruby-9.0.1.0
 rvm install $version
+rvm ruby-`echo $version`@global do gem install bundler
 
 echo "Setup Complete!"

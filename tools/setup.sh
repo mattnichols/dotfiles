@@ -46,7 +46,10 @@ git config --global core.excludesfile ~/.gitignore_global
 
 # Configure Oh My Zsh
 sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
-sed 's/(git)/(bundler zsh_reload rvm z osx terminalapp sublime themes light-rails light-git light-utils mx)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
+
+UNBUNDLED_COMMANDS=(foreman spin rspec rubocop)
+
+sed 's/(git)/(bundler zsh_reload rvm z osx terminalapp themes light-rails light-git light-utils mx webpack rvm-supplement)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.zsh_custom@" "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
@@ -64,30 +67,31 @@ fi
 echo "Updating brews..."
 brew tap caskroom/cask
 brew update
+brew cask install java
+brew cask install atom
+brew cask install google-chrome
 brew install gpg
 brew install wget
 brew install node
 brew install tree
 brew install terminal-notifier
-brew install Caskroom/cask/atom
-brew cask install google-chrome
-npm install --global trash
 brew install z
 brew install zsh
 brew install watchman
+brew install openssl
 
-apm install cobalt2-syntax
-apm install ruby-block
-apm install ruby-test-switcher
-apm install language-markdown
-apm install markdown-preview-plus
-apm install git-time-machine
-apm install copy-path
-apm install ruby-test
-apm install highlight-selected
-apm install rails-latest-migration
-apm install language-protobuf
 apm install atom-alignment
+apm install cobalt2-syntax
+apm install copy-path
+apm install git-time-machine
+apm install highlight-selected
+apm install language-markdown
+apm install language-protobuf
+apm install markdown-preview-plus
+apm install rails-latest-migration
+apm install ruby-block
+apm install ruby-test
+apm install ruby-test-switcher
 
 # Setup VIM (with vundle)
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -95,7 +99,7 @@ vim +PluginInstall +qall
 
 echo "Installing RVM..."
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable --with-gems="bundler,git-smart,omglog,irbtools,hirb"
+curl -sSL https://get.rvm.io | bash -s stable
 # echo '`brew --prefix`/etc/profile.d/z.sh' >> "$HOME/.zshrc"
 echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
 
@@ -103,20 +107,6 @@ echo 'source "$HOME/.rvm/scripts/rvm"' >> "$HOME/.zshrc"
 #  after the script runs, this works in the same terminal session. ??
 source "$HOME/.rvm/scripts/rvm"
 rvm reload
-
-# echo "bundler" >> ~/.rvm/gemsets/global.gems
-# echo "omglog" >> ~/.rvm/gemsets/global.gems
-# echo "git-smart" >> ~/.rvm/gemsets/global.gems
-# echo "wirble" >> ~/.rvm/gemsets/global.gems
-
-# rvm install 2.2.0
-
-# rvm wrapper ruby-2.2.0@global --no-prefix omglog
-# rvm wrapper ruby-2.2.0@global --no-prefix git-smart-pull
-# rvm wrapper ruby-2.2.0@global --no-prefix git-smart-merge
-# rvm wrapper ruby-2.2.0@global --no-prefix git-smart-log
-# rvm wrapper ruby-2.2.0@global --no-prefix ~/.dotfiles/zsh_custom/plugins/light-git/gbrt
-# rvm default do gem install fit-commit
 
 source $HOME/.dotfiles/tools/setup_rvm.sh
 

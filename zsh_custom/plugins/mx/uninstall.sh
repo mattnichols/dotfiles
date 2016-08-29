@@ -7,7 +7,7 @@ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
 
 rm -Rf /usr/local/var/postgres
 
-brew uninstall zeromq3
+brew uninstall zeromq32
 brew uninstall zeromq
 
 brew uninstall mongodb
@@ -18,3 +18,4 @@ brew uninstall protobuf
 brew uninstall imagemagick
 brew uninstall ansible
 brew uninstall ant
+brew uninstall tmux

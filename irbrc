@@ -10,11 +10,14 @@ IRB.conf[:SAVE_HISTORY] = 200
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
 IRB.conf[:AUTO_INDENT]  = true
 
+
 begin
-  require 'irbtools'
+  require "awesome_print"
+  AwesomePrint.irb! # just in .irbrc
 rescue LoadError => err
-  warn "Unable to load irbtools: #{err} (run: rvm @global do gem install irbtools)"
+  warn "Unable to load awesome_print: #{err} (run: rvm @global do gem install awesome_print)"
 end
+
 
 ### Rails
 # Some features that make using irb for rails much nicer.
@@ -107,20 +110,6 @@ end
 
 def paste
   `pbpaste`
-end
-
-def generate_hmac(user_guid = "USR-af8a898d-fc44-2d8d-57b4-482b9a4d2552")
-  user = ::User.find(:guid => user_guid)
-  client_mobile_profile = ::ClientMobileProfile.find(:client_guid => user.client_guid)
-  expires_at = ::Time.current.utc + 10.minutes
-
-  token = "nonce|#{user.external_guid}|#{user.guid}|#{expires_at.to_i}"
-  hmac = ::Base64.urlsafe_encode64(::OpenSSL::HMAC.digest("sha1", client_mobile_profile.header_hmac_digest_key, ::Base64.urlsafe_encode64(token)))
-
-  {
-    "MX-USER-GUID-TOKEN" => token,
-    "MX-USER-GUID-HMAC" => hmac
-  }
 end
 
 @account_guid = "ACT-f717187e-4c35-4cac-682c-e8d7fa704661"

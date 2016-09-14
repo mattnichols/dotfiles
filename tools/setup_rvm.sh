@@ -27,11 +27,13 @@ rvm ruby-`echo $version`@global do gem install omglog
 rvm ruby-`echo $version`@global do gem install git-smart
 rvm ruby-`echo $version`@global do gem install hirb
 rvm ruby-`echo $version`@global do gem install irbtools
+rvm ruby-`echo $version`@global do gem install fit-commit
 
 rvm wrapper ruby-`echo $version`@global --no-prefix omglog
 rvm wrapper ruby-`echo $version`@global --no-prefix git-smart-pull
 rvm wrapper ruby-`echo $version`@global --no-prefix git-smart-merge
 rvm wrapper ruby-`echo $version`@global --no-prefix git-smart-log
+rvm wrapper ruby-`echo $version`@global --no-prefix fit_commit
 rvm wrapper ruby-`echo $version`@global --no-prefix ~/.dotfiles/zsh_custom/plugins/light-git/gbrt
 
 #rvm default do gem install fit-commit

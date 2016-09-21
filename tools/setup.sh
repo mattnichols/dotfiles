@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# Install commandline tools
+sudo xcode-select --install
+
 pushd ~/.dotfiles
 
 # Link to .dotfiles

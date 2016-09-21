@@ -21,7 +21,7 @@
   diff = auto
   status = auto
   branch = auto
-  ui = true
+	ui = true
 [help]
   autocorrect = 1
 [status]
@@ -41,3 +41,7 @@
   enabled = 1
 [branch]
   autosetuprebase = always
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

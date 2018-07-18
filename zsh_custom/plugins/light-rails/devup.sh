@@ -1,6 +1,8 @@
 #! /bin/sh
 
 mri
+mv .ruby-version .ruby-version.orig
+rvm current | awk -F@ '{print $1}' >> .ruby-version
 rvm current
 
 
@@ -23,8 +25,15 @@ echo 'gem "guard-rubocop", :group => :development' >> Gemfile
 echo 'gem "rb-fsevent", :group => :development' >> Gemfile
 echo 'gem "terminal-notifier-guard", :group => :development' >> Gemfile
 echo 'gem "wirble", :group => :development' >> Gemfile
+echo 'gem "rb-readline", :group => :development' >> Gemfile
 echo "# --DEVUP" >> Gemfile
 bundle install --no-cache
 
 echo "vendor/cache" >> .gitignore
-rubocop -a
+echo ".ruby-version.orig" >> .gitignore
+
+# Just touch guardfile so that we use the global configuration
+touch ./Guardfile
+
+# guard init
+# rubocop -a

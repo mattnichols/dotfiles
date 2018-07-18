@@ -71,6 +71,7 @@ echo "Updating brews..."
 brew tap caskroom/cask
 brew update
 brew cask install java
+brew cask install jce-unlimited-strength-policy
 brew cask install atom
 brew cask install google-chrome
 brew install gpg

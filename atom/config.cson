@@ -15,21 +15,34 @@
     ]
   "atom-beautify":
     _analyticsUserId: "0aac2af4-19c6-4bbd-82aa-647a8058ad86"
+  "autocomplete-plus":
+    enableBuiltinProvider: false
+  "autocomplete-ruby": {}
   core:
     disabledPackages: [
       "vim-mode"
       "language-gfm"
+      "language-csharp"
+      "language-coffee-script"
+      "language-clojure"
+      "language-go"
+      "language-less"
+      "language-mustache"
+      "language-perl"
+      "language-php"
+      "autocomplete-ruby"
     ]
     ignoredNames: [
       "tmp"
     ]
     openEmptyEditorOnStart: false
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "cobalt2-syntax"
     ]
   editor:
-    fontSize: 21
+    fontSize: 20
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -50,7 +63,6 @@
   welcome:
     showOnStartup: false
   whitespace:
-    ensureSingleTrailingNewline: false
     ignoreWhitespaceOnCurrentLine: false
 ".erb.html.text":
   editor:

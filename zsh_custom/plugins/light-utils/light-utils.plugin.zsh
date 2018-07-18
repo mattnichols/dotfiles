@@ -69,3 +69,7 @@ function setjdk() {
 function removeFromPath() {
   export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
 }
+
+function watch_login_errors() {
+  log stream --predicate 'category == "AutoUnlock" AND eventMessage contains "fail with error"'
+}

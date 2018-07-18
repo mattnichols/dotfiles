@@ -15,6 +15,7 @@
   p = smart-pull
   # Clean out merged branches
   cb = !git branch --merged master | grep -v 'master$'| grep -v 'qa$' | xargs git branch -d
+	lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
 [apply]
   whitespace = warn
 [color]

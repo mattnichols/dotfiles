@@ -36,6 +36,7 @@ brew install imagemagick
 brew install ansible
 brew install ant
 brew install tmux
+brew install mockserver # Used for mocking/proxying/replaying external resources
 
 # brew install zeromq
 # Cannot use latest zermq brew.

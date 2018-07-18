@@ -52,7 +52,7 @@ sed 's/robbyrussell/peepcode/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HO
 
 UNBUNDLED_COMMANDS=(foreman spin rspec rubocop)
 
-sed 's/(git)/(bundler zsh_reload rvm z osx terminalapp themes light-rails light-git light-utils mx webpack rvm-supplement)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
+sed 's/(git)/(bundler zsh_reload rvm z osx terminalapp themes light-rails light-git light-utils mx webpack rvm-supplement kubectl dotenv docker kubernetes dicker)/' "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 sed "s@\(.*ZSH_CUSTOM=.*$\)@ZSH_CUSTOM=~/.zsh_custom@" "$HOME/.zshrc" > ~/.tmpfile && mv ~/.tmpfile "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"
 echo '' >> "$HOME/.zshrc"

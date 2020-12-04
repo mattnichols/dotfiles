@@ -1,35 +1,29 @@
 #! /bin/sh
 
 # MX Setup script
-brew install redis
-ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+brew install nats-server
+brew services start nats-server
 
-#chown -R `whoami` /usr/local
-#chown -R `whoami` /var
+brew install redis
+brew services start redis
 
 brew install postgresql
-rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres
-mkdir /var/pgsql_socket/
-ln -s /private/tmp/.s.PGSQL.5432 /var/pgsql_socket/
-ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+sudo rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres
+brew services start postgresql
 
 pause 10
 
 # Cleanup and re-init database
-rm -R /usr/local/var/postgres
 initdb /usr/local/var/postgres -E utf8
 psql postgres -c 'CREATE EXTENSION "adminpack";' # Not sure I need this...
 createuser -s postgres
 
 brew install rabbitmq
-ln -sfv /usr/local/opt/rabbitmq/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
+brew services start rabbitmq
 
 brew install protobuf
+brew install ansible
+brew install ant
 # brew install imagemagick
-# brew install ansible
-# brew install ant
 # brew install tmux
 # brew install mockserver # Used for mocking/proxying/replaying external resources

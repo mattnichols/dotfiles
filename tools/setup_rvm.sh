@@ -3,6 +3,7 @@
 source "$HOME/.rvm/scripts/rvm"
 rvm reload
 
+
 # Enable silent auto reload
 echo rvm_auto_reload_flag=2 >> ~/.rvmrc
 
@@ -13,7 +14,9 @@ echo rvm_auto_reload_flag=2 >> ~/.rvmrc
 # echo "omglog" >> ~/.rvm/gemsets/global.gems
 # echo "git-smart" >> ~/.rvm/gemsets/global.gems
 # echo "wirble" >> ~/.rvm/gemsets/global.gems
-version=2.3.1
+version=2.4.1
+
+rvm autolibs enable
 
 rvm install $version
 rvm use $version --default

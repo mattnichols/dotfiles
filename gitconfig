@@ -31,13 +31,13 @@
   # Only push branches that have been set up to track a remote branch.
   default = current
 [core]
-	excludesfile = /Users/matthewnichols/.gitignore_global
+	excludesfile = /Users/matthew.nichols/.gitignore_global
   editor = vim
 [init]
   templatedir = ~/.dotfiles/git_template
 [user]
-  name = matthew-nichols
-  email = "matthew.nichols@mx.com"
+	name = matthew-nichols
+	email = matthew.nichols@mx.com
 [rerere]
   enabled = 1
 [branch]

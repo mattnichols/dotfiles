@@ -31,6 +31,7 @@
       "language-perl"
       "language-php"
       "autocomplete-ruby"
+      "markdown-preview"
     ]
     ignoredNames: [
       "tmp"

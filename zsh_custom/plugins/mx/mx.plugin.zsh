@@ -46,6 +46,7 @@ kill_zeus(){
 }
 
 alias sshmux="source ~/.dotfiles/zsh_custom/plugins/mx/sshmux $@"
+alias gradle='gw'
 
 # This should not be needed since new macOS has a use keychain option in ~/.ssh/config
 # alias ressh="ssh-add -K ~/.ssh/id_rsa"

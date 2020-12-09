@@ -6,13 +6,13 @@ set EDITOR "vim"            # Sets $EDITOR to vim
 
 ### VIM mode keybindings ###
 function fish_user_key_bindings
-    fish_vi_key_bindings
+  fish_vi_key_bindings
 end
 
-###########################################################
+################################################################################
 # "es" Prompt from omf
 # https://raw.githubusercontent.com/oh-my-fish/theme-es/master/fish_prompt.fish
-###########################################################
+################################################################################
 
 # Powerline-patched fonts are required
 
@@ -40,8 +40,10 @@ function fish_prompt
   end
 
   echo -n -s $symbols$p_path2                                        #-n no newline, -s no space separation of arguments
-  _is_git_folder; and _prompt_git
+  #_is_git_folder; and _prompt_git
   echo -n -s $prompt
+  echo -e ''
+  echo -e -n -s (_UserSymbol)
 end
 
 function fish_right_prompt
@@ -54,7 +56,8 @@ function fish_right_prompt
   end
   echo -n -s "$errorp$duration$jobsp"                                #show error code, command duration and jobs status
   if _is_git_folder                                                  #show  only if in a git folder
-  #command git rev-parse --is-inside-work-tree 1>/dev/null 2>/dev/null
+    #command git rev-parse --is-inside-work-tree 1>/dev/null 2>/dev/null
+    _prompt_git
     set git_sha (_git_prompt_short_sha)                              #git short sha
     set NODEp   (_node_version)                                      #Node.js version
     set PYTHONp (_python_version)                                    #Python version
@@ -114,6 +117,7 @@ function _col                                     #Set Color 'name b u' bold, un
   if [ (count $argv) -gt 2 ]; set under "-"$argv[3]; end
   set_color $bold $under $argv[1]
 end
+
 function _col_res -d "Rest background and foreground colors"
   set_color -b normal
   set_color normal
@@ -125,6 +129,7 @@ function prompt_pwd2
   set -l _tmp2 (basename (dirname $_tmp))/(basename $_tmp)          #get last two dirs from path
   echo (string trim -l -c=/ (string replace "./~" "~" $_tmp2))      #trim left '/' or './' for special cases
 end
+
 function prompt_pwd_full
   set -q fish_prompt_pwd_dir_length; or set -l fish_prompt_pwd_dir_length 1
   if [ $fish_prompt_pwd_dir_length -eq 0 ]
@@ -157,6 +162,7 @@ function _prompt_user -d "Display current user if different from $default_user"
     end
   end
 end
+
 function get_hostname -d "Set current hostname to prompt variable $HOSTNAME_PROMPT if connected via SSH"
   set -g HOSTNAME_PROMPT ""
   if [ "$theme_hide_hostname" != "yes" -a -n "$SSH_CLIENT" ]
@@ -182,6 +188,7 @@ function _prompt_git -a current_dir -d 'Display the actual git state'
   end
   echo -n -s $flag_fg(_git_branch)(_git_status)(_col_res)           #add space if dirty to separate from icons "$dirty"
 end
+
 function _git_status -d 'Check git status'
   set -l git_status (command git status --porcelain 2> /dev/null | cut -c 1-2)
   set -l ahead (_git_ahead); echo -n $ahead                                    #show # of commits ahead/behind
@@ -219,9 +226,11 @@ function _git_status -d 'Check git status'
   echo ''
   #echo -n $added\n$deleted\n$modified\n$renamed\n$unmerged\n$untracked
 end
+
 function _is_git_dirty -d 'Check if branch is dirty'
   echo (command git status -s --ignore-submodules=dirty 2> /dev/null)             #'-s' short format
 end
+
 function _git_branch -d "Display the current git state"
   set -l ref
   if command git rev-parse --is-inside-work-tree >/dev/null 2>&1
@@ -234,9 +243,11 @@ function _git_branch -d "Display the current git state"
     echo " $ICON_VCS_BRANCH"(_col magenta)"$branch"(_col_res)
   end
 end
+
 function _is_git_folder     -d "Check if current folder is a git folder"
   git status 1>/dev/null 2>/dev/null
 end
+
 function _git_ahead -d         'Print the ahead/behind state for the current branch'
   if [ "$theme_display_git_ahead_verbose" = 'yes' ]
     _git_ahead_verbose
@@ -244,6 +255,7 @@ function _git_ahead -d         'Print the ahead/behind state for the current bra
   end
   command git rev-list --left-right '@{upstream}...HEAD' 2> /dev/null | awk '/>/ {a += 1} /</ {b += 1} {if (a > 0 && b > 0) nextfile} END {if (a > 0 && b > 0) print "⇕"; else if (a > 0) print ""; else if (b > 0) print ""}' #↑↓⇕⬍↕
 end
+
 function _git_ahead_verbose -d 'Print a more verbose ahead/behind state for the current branch'
   set -l commits (command git rev-list --left-right '@{upstream}...HEAD' 2> /dev/null)
   if [ $status != 0 ]
@@ -263,10 +275,12 @@ function _git_ahead_verbose -d 'Print a more verbose ahead/behind state for the 
       echo (_col blue)"$ICON_ARROW_UP$ahead"(_col red)"$ICON_ARROW_DOWN$behind"
   end
 end
+
 function _git_prompt_short_sha
   set -l SHA (command git rev-parse --short HEAD 2> /dev/null)
   test $SHA; and echo -n -s (_col brcyan)\[(_col brgrey)$SHA(_col brcyan)\](_col_res)
 end
+
 function _git_prompt_long_sha
   set -l SHA (command git rev-parse HEAD 2> /dev/null)
   test $SHA; and echo -n -s (_col brcyan)\[(_col brgrey)$SHA(_col brcyan)\](_col_res)
@@ -319,9 +333,9 @@ function _icons_initialize
   #echo \Uf00a \ue709 \ue791 \ue739 \uF0DD \UF020 \UF01F \UF07B \UF015 \UF00C \UF00B \UF06B \UF06C \UF06E \UF091 \UF02C \UF026 \UF06D \UF0CF \UF03A \UF03D \UF081 \UF02A \UE606 \UE73C      #\UF005 bugs in fish
   set -g ORANGE                     FF8C00        #FF8C00 dark orange, FFA500 orange, another one fa0 o
   set -g ICON_NODE                  \UE718" "     #  from Devicons or ⬢
-  set -g ICON_RUBY                  \UE791" "     # \UE791 from Devicons; \UF047; \UE739; 💎
+  set -g ICON_RUBY                  " "\UE791" "  # \UE791 from Devicons; \UF047; \UE739; 💎
   set -g ICON_PYTHON                \UE606" "     # \UE606; \UE73C
-  #set -g ICON_PERL                  \UE606" "     # \UE606; \UE73C
+  #set -g ICON_PERL                 \UE606" "     # \UE606; \UE73C
   set -g ICON_TEST                  \UF091        # 
   set -g ICON_VCS_UNTRACKED         \UF02C" "     #    #●: there are untracked (new) files
   set -g ICON_VCS_UNMERGED          \UF026" "     #    #═: there are unmerged commits
@@ -389,14 +403,14 @@ set -g CMD_DURATION 0
   #2. test -n (EXPRESSION; or echo "")
   #3. use count
 
-###########################################################
+################################################################################
 # end prompt
-###########################################################
+################################################################################
 
-###########################################################
+################################################################################
 # "es" Theme title
 # https://github.com/oh-my-fish/theme-es/blob/master/fish_title.fish
-###########################################################
+################################################################################
 
 function fish_title -d 'Use PROCESS $PWD format, replacing /Users/username with ~'
   set realhome ~
@@ -408,9 +422,9 @@ function fish_title -d 'Use PROCESS $PWD format, replacing /Users/username with 
   string replace -r '^'"$realhome"'($|/)' '~$1' $PWD
 end
 
-###########################################################
+################################################################################
 # end title
-###########################################################
+################################################################################
 
 function __history_previous_command
   switch (commandline -t)
@@ -481,6 +495,8 @@ abbr gp 'git pull'
 abbr b 'bundle install'
 abbr bx 'bundle exec'
 abbr c 'z'
+
+set PATH "$HOME/bin:$PATH"
 
 rvm default
 # neofetch

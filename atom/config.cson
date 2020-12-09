@@ -61,6 +61,8 @@
   tabs: {}
   "tabs-to-spaces":
     onSave: "untabify"
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
   whitespace:

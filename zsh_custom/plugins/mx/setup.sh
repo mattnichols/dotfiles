@@ -24,6 +24,18 @@ brew services start rabbitmq
 brew install protobuf
 brew install ansible
 brew install ant
+brew install gdub # Gradlew wrapper
+
+brew install fish
+
+brew install bat # Improved cat (with syntax highlighting)
+brew install fd  # Improved find
+brew install fzf # Fuzzy Find
+brew install terminal-notifier # Send desktop notifications from terminal
+
+fisher install franciscolourenco/done # Notify desktop when longrunning task finishes
+fisher install PatrickF1/fzf.fish     # Fuzzy find for fish
+
 # brew install imagemagick
 # brew install tmux
 # brew install mockserver # Used for mocking/proxying/replaying external resources

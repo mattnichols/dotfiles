@@ -40,6 +40,5 @@ alias rubocop='turbo jitless rubocop'
 function wspec() {
   watchman-make --settle 2 --pattern 'app/**/*.rb' 'lib/**/*.rb' 'spec/**/*.rb' --make 'NO_COV=1 time bundle exec rake spec' -t "SPEC=\"$1\""
 }
-alias guard='bx guard'
 
 alias bundler-multicore='number_of_cores=$(sysctl -n hw.ncpu)&&bundle config --global jobs $((number_of_cores - 1))'

@@ -1,2 +1,8 @@
 .DS_Store
-.config/karabiner/automatic_backups
+.config/
+!.config/alacritty/
+!.config/fish/
+!.config/nvim/
+!.config/tmux/
+!.config/zellij/
+!.config/starship.toml

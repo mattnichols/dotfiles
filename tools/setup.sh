@@ -83,6 +83,7 @@ brew install z
 brew install zsh
 brew install watchman
 brew install openssl
+brew install starship
 
 apm install atom-alignment
 apm install cobalt2-syntax

@@ -1,16 +1,12 @@
 #!/bin/zsh
 
 pushd ~/.dotfiles
-for name in *; do
-  target="$HOME/.$name"
-  if [ -e $target ]; then
-    echo "Removing $target"
-    rm "$target"
-  fi
-done
+stow -D .
+
+chsh -s /bin/bash
 
 # Unistall homebrew
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 
 rm "$HOME/.ackrc*"
 rm "$HOME/.bash*"
@@ -36,9 +32,8 @@ sudo rm -rf /Library/LaunchDaemons/com.oracle.java.JavaUpdateHelper.plist
 sudo rm -rf /Library/Preferences/com.oracle.java.Helper-Tool.plist
 #################
 
-rm -Rf "$HOME/.dotfiles"
+#rm -Rf "$HOME/.dotfiles"
 
 popd
-chsh -s /bin/bash
 
 echo "Relaunch Terminal!!"

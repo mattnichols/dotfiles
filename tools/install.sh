@@ -1,14 +1,14 @@
 #!/bin/bash
 
-if [ -e "$HOME/.dotfiles" ]; then
-  echo ""
-  echo ""
-  echo "!!! dotfiles already installed"
-  echo ""
-  echo "  To star over run: uninstall_dotfiles"
-  echo ""
-  exit
-fi
+#if [ -e "$HOME/.dotfiles" ]; then
+#  echo ""
+#  echo ""
+#  echo "!!! dotfiles already installed"
+#  echo ""
+#  echo "  To star over run: uninstall_dotfiles"
+#  echo ""
+#  exit
+#fi
 
 pushd "$HOME"
 git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
@@ -19,9 +19,16 @@ popd
 if [ "$(uname)" == "Darwin" ]; then
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-  brew install fish
+  chown -R $USER:admin /usr/local/Cellar/
+  
+  # brew install fish # This doesn't work
   brew install stow
+  brew install fzf
+  brew install starship
+  brew install neofetch
+  brew install trash
+  brew install z
+  brew install eza
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
@@ -49,4 +56,5 @@ fi
 pushd "$HOME/.dotfiles"
 stow .
 
+source "$HOME/.dotfiles/tools/set_shell.sh"
 source "$HOME/.dotfiles/tools/setup.sh"

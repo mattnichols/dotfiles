@@ -13,7 +13,9 @@ discharging_symbol = "💀"
 format = "$all"
 
 [character]
-use_symbol_for_status = true
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
 
 [git_commit]
 commit_hash_length = 7

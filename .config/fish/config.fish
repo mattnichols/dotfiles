@@ -127,8 +127,13 @@ abbr bx 'bundle exec'
 abbr c 'z'
 
 alias ea="atom -n ~/"
-alias ls='exa -la'
-alias rm='trash'
+if command -q eza
+  alias ls='eza -la'
+end
+if command -q trash
+  alias rm='trash'
+end
+
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias vi='nvim'
 alias vim='nvim'
@@ -221,11 +226,11 @@ end
 export GOBIN="$HOME/go/bin"
 set PATH "bin:$HOME/.rbenv/shims:$GOBIN:$PATH"
 
-if status is-interactive
+if status is-interactive && command -q pyenv
   pyenv init - | source
 end
 
-if status is-interactive
+if status is-interactive && test -e "$HOME/.jabba"
   [ -s "/Users/matthew.nichols/.jabba/jabba.fish" ]; and source "/Users/matthew.nichols/.jabba/jabba.fish"
 end
 
@@ -256,6 +261,6 @@ function nvims
   NVIM_APPNAME="$config" /usr/local/bin/nvim $argv
 end
 
-if status is-interactive
+if status is-interactive && command -q starship
   starship init fish | source
 end

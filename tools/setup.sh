@@ -3,14 +3,11 @@
 # Install commandline tools
 sudo xcode-select --install
 
-if [ "$(uname)" == "Darwin" ]; then
+if test "$(uname)" = "Darwin"
 
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-  brew install fish
   brew install stow
 
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
 
   # Add source for fish
   curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
@@ -19,19 +16,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
   sudo apt update
 
-  if hash brew 2>/dev/null; then
-    echo "Homebrew is installed"
-  else
-    echo "Installing Homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    sudo chown -R $USER /usr/local
-  fi
-
   sudo apt install nala -y
-  sudo nala install fish -y
   sudo nala install stow -y
 
-fi
+end
 
 # Unfold stowed configs
 pushd "$HOME/.dotfiles"
@@ -41,7 +29,7 @@ stow .
 git config --global core.excludesfile "$HOME/.gitignore_global"
 
 
-if [ "$(uname)" == "Darwin" ]; then
+if test "$(uname)" = "Darwin"
 
   echo "Updating brews..."
   brew tap caskroom/cask
@@ -67,18 +55,13 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install gpg
   brew install tree
   brew install terminal-notifier
-  brew install z
   brew install zsh
-  brew install fzf
   brew install fd
   brew install btop
   brew install htop
-  brew install trash
   brew install ripgrep
   brew install watchman
   brew install openssl
-  brew install neofetch
-  brew install starship
   brew install colima
   brew install rbenv
   brew install cmatrix
@@ -94,7 +77,8 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install rabbitmq
   brew install protobuf
 
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
 end
 
-echo "run 'source $HOME/.dotfiles/tools/setup_rvm.sh'"
+rm -Rf $HOME/.local/share/omf
+curl -L https://get.oh-my.fish | fish

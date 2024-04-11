@@ -2,9 +2,6 @@
 
 brew install fish
 
-mkdir -p ~/.config/fish/
-ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
-
 # Install RVM plugin
 curl -L --create-dirs -o ~/.config/fish/functions/rvm.fish https://raw.github.com/lunks/fish-nuggets/master/functions/rvm.fish
 echo "rvm default" >> ~/.config/fish/config.fish

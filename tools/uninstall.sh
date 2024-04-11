@@ -9,11 +9,8 @@ for name in *; do
   fi
 done
 
-# Implode RVM
-rvm implode --force
-
 # Unistall homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 
 rm "$HOME/.ackrc*"
 rm "$HOME/.bash*"
@@ -27,7 +24,6 @@ rm "$HOME/.zlogin*"
 rm "$HOME/.zsh*"
 rm "$HOME/.zcomp*"
 rm "$HOME/.z"
-rm -Rf "$HOME/.atom"
 rm -Rf "$HOME/.bundle"
 
 ## Uninstall Java
@@ -40,8 +36,6 @@ sudo rm -rf /Library/LaunchDaemons/com.oracle.java.JavaUpdateHelper.plist
 sudo rm -rf /Library/Preferences/com.oracle.java.Helper-Tool.plist
 #################
 
-uninstall_oh_my_zsh
-rm -Rf "$HOME/.oh-my-zsh"
 rm -Rf "$HOME/.dotfiles"
 
 popd

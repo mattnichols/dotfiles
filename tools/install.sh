@@ -11,8 +11,42 @@ if [ -e "$HOME/.dotfiles" ]; then
 fi
 
 pushd "$HOME"
-# git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
-git clone https://github.com/mattnichols/dotfiles.git "$HOME/.dotfiles"
+git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
+# git clone https://github.com/mattnichols/dotfiles.git "$HOME/.dotfiles"
 popd
 
-. "$HOME/.dotfiles/tools/setup.sh"
+# Setup env (setup apt/brew and install fish)
+if [ "$(uname)" == "Darwin" ]; then
+
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  brew install fish
+  brew install stow
+
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+
+  # Add source for fish
+  curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
+
+  echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+
+  sudo apt update
+
+  if hash brew 2>/dev/null; then
+    echo "Homebrew is installed"
+  else
+    echo "Installing Homebrew"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    sudo chown -R $USER /usr/local
+  fi
+
+  sudo apt install nala -y
+  sudo nala install fish -y
+  sudo nala install stow -y
+
+fi
+
+pushd "$HOME/.dotfiles"
+stow .
+
+source "$HOME/.dotfiles/tools/setup.sh"

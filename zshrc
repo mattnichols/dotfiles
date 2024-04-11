@@ -69,3 +69,5 @@ export dirstacksize=5
 setopt EXTENDED_GLOB
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+eval "$(starship init zsh)"

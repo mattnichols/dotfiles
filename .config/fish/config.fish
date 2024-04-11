@@ -2,7 +2,6 @@
 
 set fish_greeting           # Turns off the intro message when pulling up fish shell
 set TERM "xterm-256color"   # Sets the terminal type
-set EDITOR "vim"            # Sets $EDITOR to vim
 
 fish_default_key_bindings
 # fish_vi_key_bindings
@@ -200,9 +199,10 @@ export FIREBOLT_SKIP_WARNING=1
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export EDITOR=/usr/local/bin/nvim
+export XDG_CONFIG_HOME=$HOME/.config/
+alias nvim='NVIM_APPNAME=kickstart /usr/local/bin/nvim'
 
-set PATH "$HOME/bin:$HOME/.emacs.d/bin:/usr/local/bin:$PATH"
-alias emacs='emacsclient -c -a emacs'
+set PATH "$HOME/bin:/usr/local/bin:$PATH"
 
 # Hack to keep git cert registered
 # ssh-add -K ~/.ssh/id_ed25519
@@ -240,6 +240,20 @@ function __handle_jabba_stuff --on-variable PWD
   end
 
   set -e cwd
+end
+
+function nvims
+  #set config (echo "default/kickstart/LazyVim/NvChad/AstroNvim" | fzf --prompt=" Neovim Config  " --height="50%" --layout=reverse --border --exit-0)
+  set options "default" "kickstart" "LazyVim"
+  set config (printf "%s\n" $options | fzf --prompt=" Neovim Config  " --height="50%"  --layout=reverse --border --exit-0)
+
+  if test -z $config
+    echo "Nothing selected"
+    return 0
+  else if test "$config" = "default" 
+    set config "kickstart"
+  end
+  NVIM_APPNAME="$config" /usr/local/bin/nvim $argv
 end
 
 if status is-interactive

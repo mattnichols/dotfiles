@@ -1,0 +1,75 @@
+live_config_reload: true
+
+window:
+  decorations: none
+  padding:
+    x: 10
+    y: 10
+
+background_opacity: 1.0
+
+shell:
+  program: /usr/local/bin/fish
+
+font:
+  size: 18.0
+  normal:
+    family: Menlo
+    style: Regular
+  bold:
+    family: Menlo
+    style: Bold
+
+scrolling:
+  history: 10000
+  multiplier: 2
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+key_bindings:
+  - { key: K,              mods: Command,            action: ClearHistory     }
+  - { key: K,              mods: Command, mode: ~Vi, chars: "\x0c"            }
+  - { key: Key0,           mods: Command,            action: ResetFontSize    }
+  - { key: Equals,         mods: Command,            action: IncreaseFontSize }
+  - { key: Plus,           mods: Command,            action: IncreaseFontSize }
+  - { key: NumpadAdd,      mods: Command,            action: IncreaseFontSize }
+  - { key: Minus,          mods: Command,            action: DecreaseFontSize }
+  - { key: NumpadSubtract, mods: Command,            action: DecreaseFontSize }
+  - { key: V,              mods: Command,            action: Paste            }
+  - { key: C,              mods: Command,            action: Copy             }
+  - { key: C,              mods: Command, mode: Vi,  action: ClearSelection   }
+  - { key: H,              mods: Command,            action: Hide             }
+  - { key: M,              mods: Command,            action: Minimize         }
+  - { key: Q,              mods: Command,            action: Quit             }
+  - { key: W,              mods: Command,            action: Quit             }
+  - { key: N,              mods: Command,            action: SpawnNewInstance }
+
+# Colors (Oceanic Next)
+colors:
+  # Default colors
+  primary:
+    background: '0x1b2b34'
+    foreground: '0xd8dee9'
+
+  # Normal colors
+  normal:
+    black:   '0x29414f'
+    red:     '0xec5f67'
+    green:   '0x99c794'
+    yellow:  '0xfac863'
+    blue:    '0x6699cc'
+    magenta: '0xc594c5'
+    cyan:    '0x5fb3b3'
+    white:   '0x65737e'
+
+  # Bright colors
+  bright:
+    black:   '0x405860'
+    red:     '0xec5f67'
+    green:   '0x99c794'
+    yellow:  '0xfac863'
+    blue:    '0x6699cc'
+    magenta: '0xc594c5'
+    cyan:    '0x5fb3b3'
+    white:   '0xadb5c0'

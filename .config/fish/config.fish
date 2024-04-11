@@ -1,1 +1,0 @@
-/Users/matthew.nichols/.dotfiles/config.fish

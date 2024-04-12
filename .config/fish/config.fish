@@ -248,7 +248,6 @@ function __handle_jabba_stuff --on-variable PWD
 end
 
 function nvims
-  #set config (echo "default/kickstart/LazyVim/NvChad/AstroNvim" | fzf --prompt=" Neovim Config  " --height="50%" --layout=reverse --border --exit-0)
   set options "default" "kickstart" "LazyVim"
   set config (printf "%s\n" $options | fzf --prompt=" Neovim Config  " --height="50%"  --layout=reverse --border --exit-0)
 
@@ -264,3 +263,8 @@ end
 if status is-interactive && command -q starship
   starship init fish | source
 end
+
+if command -q fzf
+  fzf --fish | source
+end
+

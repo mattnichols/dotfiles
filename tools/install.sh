@@ -19,7 +19,7 @@ popd
 if [ "$(uname)" == "Darwin" ]; then
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  chown -R $USER:admin /usr/local/Cellar/
+  sudo chown -R $(whoami) $(brew --prefix)/*
   
   # brew install fish # This doesn't work
   brew install stow

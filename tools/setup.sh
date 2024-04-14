@@ -28,6 +28,19 @@ stow .
 # Git
 git config --global core.excludesfile "$HOME/.gitignore_global"
 
+# Install Oh My Fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+omf install nvm
+
+# Uninstall system node, if present
+nvm use system
+npm uninstall -g a_module
+
+# Install stable
+nvm install stable
 
 if test "$(uname)" = "Darwin"
 
@@ -45,11 +58,14 @@ if test "$(uname)" = "Darwin"
   brew install nvim
   brew install tmux
   brew install zellij
+  brew install slack
+  brew install keka # 7zip equivalent
+  brew install vlc 
+  brew install keycastr
 
   brew install go
   brew install gum
   brew install vhs
-  brew install node
 
   brew install 1password-cli
   brew install gpg
@@ -60,11 +76,15 @@ if test "$(uname)" = "Darwin"
   brew install btop
   brew install htop
   brew install ripgrep
+# watch for files changes and run something
   brew install watchman
   brew install openssl
+
+# Docker desktop alternative
   brew install colima
   brew install rbenv
   brew install cmatrix
+  brew install tldr
 
   brew install qmk/qmk/qmk
   brew install qmk-toolbox

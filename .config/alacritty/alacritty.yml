@@ -73,3 +73,7 @@ colors:
     magenta: '0xc594c5'
     cyan:    '0x5fb3b3'
     white:   '0xadb5c0'
+
+key_bindings:
+    - { key: H, mods: Control|Shift, chars: "btop \x0D" }
+    - { key: N, mods: Control|Shift, chars: "nvim . \x0D" }

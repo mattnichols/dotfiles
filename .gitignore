@@ -3,7 +3,7 @@
 # Only include certain config folders
 !.config/
 .config/*
-!.config/kickstart/*
+!.config/kickstart/
 !.config/alacritty/
 !.config/fish/
 !.config/nvim/

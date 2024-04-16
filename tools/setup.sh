@@ -62,6 +62,7 @@ if test "$(uname)" = "Darwin"
   brew install keka # 7zip equivalent
   brew install vlc 
   brew install keycastr
+  brew install coreutils
 
   brew install go
   brew install gum

@@ -24,7 +24,6 @@ return {
           mappings = {
             ['.'] = 'toggle_hidden',
             ['l'] = 'open',
-            ['L'] = 'open_nofocus',
             ['P'] = 'focus_preview',
             ['H'] = 'set_root',
           },
@@ -46,6 +45,6 @@ return {
         },
       },
     }
-    vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
+    vim.cmd [[nnoremap \ :Neotree toggle<cr>]]
   end,
 }

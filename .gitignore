@@ -1,5 +1,8 @@
 .DS_Store
-.config/
+
+# Only include certain config folders
+!.config/
+.config/*
 !.config/kickstart/*
 !.config/alacritty/
 !.config/fish/

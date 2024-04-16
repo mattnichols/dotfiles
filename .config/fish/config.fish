@@ -248,13 +248,13 @@ function __handle_jabba_stuff --on-variable PWD
 end
 
 function nvims
-  set options "default" "kickstart" "LazyVim"
+  set options "default" "kickstart" "LazyVim" "nvchad"
   set config (printf "%s\n" $options | fzf --prompt=" Neovim Config  " --height="50%"  --layout=reverse --border --exit-0)
 
   if test -z $config
     echo "Nothing selected"
     return 0
-  else if test "$config" = "default" 
+  else if test "$config" = "default"
     set config "kickstart"
   end
   NVIM_APPNAME="$config" /usr/local/bin/nvim $argv

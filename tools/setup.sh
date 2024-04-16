@@ -52,7 +52,8 @@ if test "$(uname)" = "Darwin"
   brew install --cask chromium
   brew install --cask raycast
 
-  brew tap homebrew/cask-fonts && brew install --cask font-meslo-lg-nerd-font
+  brew tap homebrew/cask-fonts
+  brew install --cask font-hack-nerd-font
 
   brew install wget
   brew install nvim

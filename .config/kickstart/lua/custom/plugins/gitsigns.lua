@@ -1,9 +1,5 @@
--- See `:help gitsigns` to understand what the configuration keys do
 return {
   {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    --
-    --
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup {
@@ -15,10 +11,26 @@ return {
           changedelete = { text = '~' },
         },
       }
-      vim.keymap.set('n', '<leader>gp', ':Gitsigns preview_hunk<CR>')
-      vim.keymap.set('n', '<leader>gn', ':Gitsigns next_hunk<CR>')
-      vim.keymap.set('n', '<leader>gt', ':Gitsigns toggle_current_line_blame<CR>')
     end,
   },
-  { 'tpope/vim-fugitive' },
+  --{ 'tpope/vim-fugitive' },
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      'nvim-telescope/telescope.nvim', -- optional
+      --'ibhagwan/fzf-lua', -- optional
+    },
+    config = function()
+      local neogit = require 'neogit'
+      neogit.setup {}
+
+      vim.keymap.set('n', '<leader>gs', neogit.open, { silent = true, noremap = true })
+      vim.keymap.set('n', '<leader>gc', ':Neogit commit<CR>', { silent = true, noremap = true })
+      vim.keymap.set('n', '<leader>gp', ':Neogit pull<CR>', { silent = true, noremap = true })
+    end,
+  },
 }

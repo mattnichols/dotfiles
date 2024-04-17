@@ -68,6 +68,7 @@ if test "$(uname)" = "Darwin"
   brew install go
   brew install gum
   brew install vhs
+  brew install delve # for go debugging
 
   brew install 1password-cli
   brew install gpg

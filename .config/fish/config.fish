@@ -133,6 +133,7 @@ end
 if command -q trash
   alias rm='trash'
 end
+alias z='zoxide'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias vi='nvim'
@@ -266,5 +267,9 @@ end
 
 if command -q fzf
   fzf --fish | source
+end
+
+if command -q zoxide
+  zoxide init fish | source
 end
 

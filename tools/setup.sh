@@ -55,6 +55,7 @@ if test "$(uname)" = "Darwin"
   brew tap homebrew/cask-fonts
   brew install --cask font-hack-nerd-font
 
+  brew install zoxide # z
   brew install wget
   brew install nvim
   brew install tmux

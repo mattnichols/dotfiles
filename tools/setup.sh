@@ -73,6 +73,7 @@ if test "$(uname)" = "Darwin"
 
   brew install 1password-cli
   brew install gpg
+  brew install bat
   brew install tree
   brew install terminal-notifier
   brew install zsh

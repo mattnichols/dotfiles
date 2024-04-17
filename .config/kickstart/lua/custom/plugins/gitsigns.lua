@@ -62,7 +62,7 @@ return {
           map('n', '<leader>gd', gitsigns.diffthis, { desc = 'Show diff' })
           map('n', '<leader>gD', function()
             gitsigns.diffthis '~'
-          end, { desc = 'Stage hunk (visual)' })
+          end, { desc = 'Show diff' })
 
           -- What does this doj
           map('n', '<leader>td', gitsigns.toggle_deleted, { desc = 'Stage hunk (visual)' })

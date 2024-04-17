@@ -55,10 +55,10 @@ if test "$(uname)" = "Darwin"
   brew tap homebrew/cask-fonts
   brew install --cask font-hack-nerd-font
 
-  brew install zoxide # z
+  brew install tmux
   brew install wget
   brew install nvim
-  brew install tmux
+  brew install zoxide # z
   brew install zellij
   brew install slack
   brew install keka # 7zip equivalent
@@ -94,13 +94,6 @@ if test "$(uname)" = "Darwin"
   brew install qmk/qmk/qmk
   brew install qmk-toolbox
   brew install teensy_loader_cli
-
-  brew cask install java
-  brew cask install jce-unlimited-strength-policy
-  brew install nats-server
-  brew install redis
-  brew install rabbitmq
-  brew install protobuf
 
 else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
 end

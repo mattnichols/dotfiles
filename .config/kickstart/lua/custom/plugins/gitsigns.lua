@@ -20,21 +20,21 @@ return {
           end
 
           -- Navigation
-          map('n', ']c', function()
+          map('n', '<leader>hj', function()
             if vim.wo.diff then
               vim.cmd.normal { ']c', bang = true }
             else
               gitsigns.nav_hunk 'next'
             end
-          end)
+          end, { desc = 'Next hunk' })
 
-          map('n', '[c', function()
+          map('n', '<leader>hk', function()
             if vim.wo.diff then
               vim.cmd.normal { '[c', bang = true }
             else
               gitsigns.nav_hunk 'prev'
             end
-          end)
+          end, { desc = 'Previous hunk' })
 
           -- Hunks
           map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'Preview hunk' })

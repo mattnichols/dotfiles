@@ -1,7 +1,7 @@
 # Fish configuration
 
-set fish_greeting           # Turns off the intro message when pulling up fish shell
-set TERM "xterm-256color"   # Sets the terminal type
+set fish_greeting # Turns off the intro message when pulling up fish shell
+set TERM xterm-256color # Sets the terminal type
 
 fish_default_key_bindings
 # fish_vi_key_bindings
@@ -11,20 +11,19 @@ fish_default_key_bindings
 # https://github.com/oh-my-fish/theme-es/blob/master/fish_title.fish
 ################################################################################
 
-
 # set SPACEFISH_RUBY_SYMBOL ""
 # set SPACEFISH_RUBY_PREFIX "("
 # set SPACEFISH_RUBY_SUFFIX ")"
 # set SPACEFISH_DIR_PREFIX ""
 
 function fish_title -d 'Use PROCESS $PWD format, replacing /Users/username with ~'
-  set realhome ~
-  if test "$_" != "fish"
-    echo $_ ''
-  else
-    echo ''
-  end
-  string replace -r '^'"$realhome"'($|/)' '~$1' $PWD
+    set realhome ~
+    if test "$_" != fish
+        echo $_ ''
+    else
+        echo ''
+    end
+    string replace -r '^'"$realhome"'($|/)' '~$1' $PWD
 end
 
 ################################################################################
@@ -37,22 +36,23 @@ end
 ################################################################################
 
 function __history_previous_command
-  switch (commandline -t)
-  case "!"
-    commandline -t $history[1]; commandline -f repaint
-  case "*"
-    commandline -i !
-  end
+    switch (commandline -t)
+        case "!"
+            commandline -t $history[1]
+            commandline -f repaint
+        case "*"
+            commandline -i !
+    end
 end
 
 function __history_previous_command_arguments
-  switch (commandline -t)
-  case "!"
-    commandline -t ""
-    commandline -f history-token-search-backward
-  case "*"
-    commandline -i '$'
-  end
+    switch (commandline -t)
+        case "!"
+            commandline -t ""
+            commandline -f history-token-search-backward
+        case "*"
+            commandline -i '$'
+    end
 end
 
 bind ! __history_previous_command
@@ -70,36 +70,36 @@ function sudo
 end
 
 function git_sync_tags
-  git tag -l | xargs git tag -d
-  git fetch --tags
+    git tag -l | xargs git tag -d
+    git fetch --tags
 end
 
 # Setup context for kubernetes in sd-qa
 function kube_qa
-  set -x KUBECONFIG ~/.kube/teleport
-  kubectl config use-context qa-sd-qa
+    set -x KUBECONFIG ~/.kube/teleport
+    kubectl config use-context qa-sd-qa
 end
 
 # Setup context for kubernetes in sd-sand
 function kube_sand
-  set -x KUBECONFIG ~/.kube/teleport
-  kubectl config use-context sand-sb-sand
+    set -x KUBECONFIG ~/.kube/teleport
+    kubectl config use-context sand-sb-sand
 end
 
 ## Abbreviations ##
 abbr df 'df -h'
 abbr free 'free -g'
 abbr h 'cd ~/'
-abbr c 'clear'
+abbr c clear
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
-abbr v 'vim'
+abbr v vim
 abbr ll 'ls -l'
 abbr la 'ls -A'
 abbr lla 'ls -Al'
 abbr ls. 'ls -A | egrep "^\."'
 abbr merge 'xrdb -merge ~/.Xresources'
-abbr q 'exit'
+abbr q exit
 abbr d 'cd ~/Downloads'
 abbr doc 'cd ~/Documents'
 abbr grep 'grep --color=auto'
@@ -124,14 +124,14 @@ abbr gl 'git smart-pull'
 abbr b 'bundle install'
 abbr bu 'bundle update'
 abbr bx 'bundle exec'
-abbr c 'z'
+abbr c z
 
 alias ea="atom -n ~/"
 if command -q eza
-  alias ls='eza -la'
+    alias ls='eza -la'
 end
 if command -q trash
-  alias rm='trash'
+    alias rm='trash'
 end
 alias z='zoxide'
 
@@ -204,22 +204,29 @@ echo Skipping Firebolt Warnings...
 export FIREBOLT_SKIP_WARNING=1
 
 export HOMEBREW_NO_AUTO_UPDATE=1
-export EDITOR=/usr/local/bin/nvim
+# if not test -z $NVIMEX
+    export NVIMEX=(which nvim)
+# end
+
+echo "$NVIMEX"
+
+export EDITOR="$NVIMEX"
 export XDG_CONFIG_HOME=$HOME/.config/
-alias nvim='NVIM_APPNAME=kickstart /usr/local/bin/nvim'
+
+alias nvim="NVIM_APPNAME=kickstart $NVIMEX"
 
 set PATH "$HOME/bin:/usr/local/bin:$PATH"
 
 # Hack to keep git cert registered
 # ssh-add -K ~/.ssh/id_ed25519
-if status is-interactive
-  ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+if status is-interactive && command -q ssh-add && test -e /usr/local/bin/nvim
+    ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 end
 
 # navi widget fish | source
 
 if status is-interactive
-  neofetch --ascii ~/.config/neofetch/tie_fighter.ascii
+    neofetch --ascii ~/.config/neofetch/tie_fighter.ascii
 end
 
 #colorscript -e tiefighter1row
@@ -228,48 +235,47 @@ export GOBIN="$HOME/go/bin"
 set PATH "bin:$HOME/.rbenv/shims:$GOBIN:$PATH"
 
 if status is-interactive && command -q pyenv
-  pyenv init - | source
+    pyenv init - | source
 end
 
 if status is-interactive && test -e "$HOME/.jabba"
-  [ -s "/Users/matthew.nichols/.jabba/jabba.fish" ]; and source "/Users/matthew.nichols/.jabba/jabba.fish"
+    [ -s "/Users/matthew.nichols/.jabba/jabba.fish" ]; and source "/Users/matthew.nichols/.jabba/jabba.fish"
 end
 
 function __handle_jabba_stuff --on-variable PWD
-  # Source a .jabbarc file in a directory after changing to it, if it exists.
-  set -l cwd $PWD
-  if test -e .jabbarc
-    eval "jabba use" > /dev/null
-  else
-    jabba use default 1>/dev/null 2>&1
-    set cwd (dirname "$cwd")
-  end
+    # Source a .jabbarc file in a directory after changing to it, if it exists.
+    set -l cwd $PWD
+    if test -e .jabbarc
+        eval "jabba use" >/dev/null
+    else
+        jabba use default 1>/dev/null 2>&1
+        set cwd (dirname "$cwd")
+    end
 
-  set -e cwd
+    set -e cwd
 end
 
 function nvims
-  set options "default" "kickstart" "LazyVim" "nvchad"
-  set config (printf "%s\n" $options | fzf --prompt=" Neovim Config  " --height="50%"  --layout=reverse --border --exit-0)
+    set options default kickstart LazyVim nvchad
+    set config (printf "%s\n" $options | fzf --prompt=" Neovim Config = " --height="50%"  --layout=reverse --border --exit-0)
 
-  if test -z $config
-    echo "Nothing selected"
-    return 0
-  else if test "$config" = "default"
-    set config "kickstart"
-  end
-  NVIM_APPNAME="$config" /usr/local/bin/nvim $argv
+    if test -z $config
+        echo "Nothing selected"
+        return 0
+    else if test "$config" = default
+        set config kickstart
+    end
+    NVIM_APPNAME="$config" $NVIMEX $argv
 end
 
 if status is-interactive && command -q starship
-  starship init fish | source
+    starship init fish | source
 end
 
 if command -q fzf
-  fzf --fish | source
+    fzf --fish | source
 end
 
 if command -q zoxide
-  zoxide init fish | source
+    zoxide init fish | source
 end
-

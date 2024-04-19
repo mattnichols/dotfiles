@@ -74,6 +74,7 @@ if test "$(uname)" = "Darwin"
   brew install 1password-cli
   brew install gpg
   brew install bat
+  brew install thefuck
   brew install tree
   brew install terminal-notifier
   brew install zsh
@@ -111,7 +112,7 @@ else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
   sudo nala install fd -y
   sudo nala install ripgrep -y
   sudo nala install btop -y
-  sudo nala install fuck -y
+  sudo nala install thefuck -y
   sudo nala install zoxide -y
   sudo nala install stow -y
   sudo nala install forever -y
@@ -125,7 +126,7 @@ else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   git pull --tags
   git checkout 0.37.0
-  version=0.37.0 ~/.fzf/install
+  version=0.33.0 ~/.fzf/install
 
   # Install eza
   sudo nala install -y gpg

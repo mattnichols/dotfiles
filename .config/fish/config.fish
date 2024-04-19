@@ -207,9 +207,7 @@ echo Skipping Firebolt Warnings...
 export FIREBOLT_SKIP_WARNING=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-if not test -z $NVIMEX
-  export NVIMEX=(which nvim)
-end
+export NVIMEX=(which nvim)
 
 export EDITOR="$NVIMEX"
 export XDG_CONFIG_HOME=$HOME/.config/

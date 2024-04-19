@@ -94,10 +94,7 @@ abbr c clear
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
 abbr v vim
-abbr ll 'ls -l'
-abbr la 'ls -A'
-abbr lla 'ls -Al'
-abbr ls. 'ls -A | egrep "^\."'
+alias ls="eza --color=always --git --icons=always"
 abbr merge 'xrdb -merge ~/.Xresources'
 abbr q exit
 abbr d 'cd ~/Downloads'
@@ -126,10 +123,16 @@ abbr bu 'bundle update'
 abbr bx 'bundle exec'
 abbr c z
 
-alias ea="atom -n ~/"
+alias ea="nvim ~/"
+
 if command -q eza
     alias ls='eza -la'
 end
+abbr ll 'ls --long'
+abbr la 'ls -A'
+abbr lla 'ls -A --long'
+abbr ls. 'ls -A | egrep "^\."'
+
 if command -q trash
     alias rm='trash'
 end
@@ -202,13 +205,11 @@ export PB_IGNORE_DEPRECATIONS=1
 
 echo Skipping Firebolt Warnings...
 export FIREBOLT_SKIP_WARNING=1
-
 export HOMEBREW_NO_AUTO_UPDATE=1
-# if not test -z $NVIMEX
-    export NVIMEX=(which nvim)
-# end
 
-echo "$NVIMEX"
+if not test -z $NVIMEX
+  export NVIMEX=(which nvim)
+end
 
 export EDITOR="$NVIMEX"
 export XDG_CONFIG_HOME=$HOME/.config/
@@ -240,19 +241,19 @@ end
 
 if status is-interactive && test -e "$HOME/.jabba"
     [ -s "/Users/matthew.nichols/.jabba/jabba.fish" ]; and source "/Users/matthew.nichols/.jabba/jabba.fish"
-end
 
-function __handle_jabba_stuff --on-variable PWD
-    # Source a .jabbarc file in a directory after changing to it, if it exists.
-    set -l cwd $PWD
-    if test -e .jabbarc
-        eval "jabba use" >/dev/null
-    else
-        jabba use default 1>/dev/null 2>&1
-        set cwd (dirname "$cwd")
-    end
+    # function __handle_jabba_stuff --on-variable PWD
+    #     # Source a .jabbarc file in a directory after changing to it, if it exists.
+    #     set -l cwd $PWD
+    #     if test -e .jabbarc
+    #         eval "jabba use" >/dev/null
+    #     else
+    #         jabba use default 1>/dev/null 2>&1
+    #         set cwd (dirname "$cwd")
+    #     end
 
-    set -e cwd
+    #     set -e cwd
+    # end
 end
 
 function nvims
@@ -272,10 +273,105 @@ if status is-interactive && command -q starship
     starship init fish | source
 end
 
-if command -q fzf
-    fzf --fish | source
+# if command -q zoxide
+#     zoxide init fish | source
+# end
+
+# =============================================================================
+#
+# Utility functions for zoxide.
+#
+
+# pwd based on the value of _ZO_RESOLVE_SYMLINKS.
+function __zoxide_pwd
+    builtin pwd -L
 end
 
-if command -q zoxide
-    zoxide init fish | source
+# A copy of fish's internal cd function. This makes it possible to use
+# `alias cd=z` without causing an infinite loop.
+if ! builtin functions --query __zoxide_cd_internal
+    if builtin functions --query cd
+        builtin functions --copy cd __zoxide_cd_internal
+    else
+        alias __zoxide_cd_internal='builtin cd'
+    end
 end
+
+# cd + custom logic based on the value of _ZO_ECHO.
+function __zoxide_cd
+    __zoxide_cd_internal $argv
+end
+
+# =============================================================================
+#
+# Hook configuration for zoxide.
+#
+
+# Initialize hook to add new entries to the database.
+function __zoxide_hook --on-variable PWD
+    test -z "$fish_private_mode"
+    and command zoxide add -- (__zoxide_pwd)
+end
+
+# =============================================================================
+#
+# When using zoxide with --no-cmd, alias these internal functions as desired.
+#
+
+if test -z $__zoxide_z_prefix
+    set __zoxide_z_prefix 'z!'
+end
+set __zoxide_z_prefix_regex ^(string escape --style=regex $__zoxide_z_prefix)
+
+# Jump to a directory using only keywords.
+function __zoxide_z
+    set -l argc (count $argv)
+    if test $argc -eq 0
+        __zoxide_cd $HOME
+    else if test "$argv" = -
+        __zoxide_cd -
+    else if test $argc -eq 1 -a -d $argv[1]
+        __zoxide_cd $argv[1]
+    else if set -l result (string replace --regex $__zoxide_z_prefix_regex '' $argv[-1]); and test -n $result
+        __zoxide_cd $result
+    else
+        set -l result (command zoxide query --exclude (__zoxide_pwd) -- $argv 2>/dev/null)
+        and __zoxide_cd $result
+    end
+end
+
+# Completions.
+function __zoxide_z_complete
+    set -l tokens (commandline --current-process --tokenize)
+    set -l curr_tokens (commandline --cut-at-cursor --current-process --tokenize)
+
+    if test (count $tokens) -le 2 -a (count $curr_tokens) -eq 1
+        # If there are < 2 arguments, use `cd` completions.
+        complete --do-complete "'' "(commandline --cut-at-cursor --current-token) | string match --regex '.*/$'
+    else if test (count $tokens) -eq (count $curr_tokens); and ! string match --quiet --regex $__zoxide_z_prefix_regex. $tokens[-1]
+        # If the last argument is empty and the one before doesn't start with
+        # $__zoxide_z_prefix, use interactive selection.
+        set -l query $tokens[2..-1]
+        set -l result (zoxide query --exclude (__zoxide_pwd) --interactive -- $query 2>/dev/null)
+        and echo $__zoxide_z_prefix$result
+        commandline --function repaint
+    end
+end
+complete --command __zoxide_z --no-files --arguments '(__zoxide_z_complete)'
+
+# Jump to a directory using interactive search.
+function __zoxide_zi
+    set -l result (command zoxide query --interactive -- $argv)
+    and __zoxide_cd $result
+end
+
+# =============================================================================
+#
+# Commands for zoxide. Disable these using --no-cmd.
+#
+
+abbr --erase z &>/dev/null
+alias z=__zoxide_z
+
+abbr --erase zi &>/dev/null
+alias zi=__zoxide_zi

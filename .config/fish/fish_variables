@@ -1,6 +1,5 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR Z_DATA_DIR:/Users/matthew\x2enichols/\x2elocal/share/z
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr__2E_2E_:cd\x20\x2e\x2e
 SETUVAR _fish_abbr__2E_2E_2E_:cd\x20\x2e\x2e/\x2e\x2e
@@ -42,11 +41,12 @@ SETUVAR _fish_abbr_rm:rm\x20\x2di
 SETUVAR _fish_abbr_st:/Applications/Sublime\x5c\x20Text\x2eapp/Contents/SharedSupport/bin/subl\x20\x2d\x2dstay
 SETUVAR _fish_abbr_sta:/Applications/Sublime\x5c\x20Text\x2eapp/Contents/SharedSupport/bin/subl\x20\x2d\x2dadd
 SETUVAR _fish_abbr_v:vim
-SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/Users/matthew\x2enichols/\x2econfig/fish/functions/__fzf_display_value_or_error\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/functions/__fzf_preview_file\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/functions/__fzf_report_file_type\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/functions/__fzf_search_current_dir\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/functions/__fzf_search_git_log\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/functions/__fzf_search_git_status\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/functions/__fzf_search_history\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/functions/__fzf_search_shell_variables\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/conf\x2ed/fzf\x2efish
-SETUVAR _fisher_daenney_2F_pyenv_files:/Users/matthew\x2enichols/\x2econfig/fish/functions/pyenv\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/conf\x2ed/pyenv\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/completions/pyenv\x2efish
-SETUVAR _fisher_franciscolourenco_2F_done_files:/Users/matthew\x2enichols/\x2econfig/fish/conf\x2ed/done\x2efish
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/matthew\x2enichols/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/matthew\x2enichols/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1efranciscolourenco/done\x1ePatrickF1/fzf\x2efish\x1edaenney/pyenv
+SETUVAR _fisher_daenney_2F_pyenv_files:\x7e/\x2econfig/fish/functions/pyenv\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/pyenv\x2efish\x1e\x7e/\x2econfig/fish/completions/pyenv\x2efish
+SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_changed_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_diff_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_processes\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e\x7e/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1efranciscolourenco/done\x1edaenney/pyenv\x1epatrickf1/fzf\x2efish
+SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
@@ -77,4 +77,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/usr/local/opt/protobuf\x403/bin
+SETUVAR fish_user_paths:/usr/local/opt/protobuf\x403/bin\x1e/home/mnichols/\x2efzf/bin

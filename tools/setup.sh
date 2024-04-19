@@ -62,7 +62,7 @@ if test "$(uname)" = "Darwin"
   brew install zellij
   brew install slack
   brew install keka # 7zip equivalent
-  brew install vlc 
+  brew install vlc
   brew install keycastr
   brew install coreutils
 
@@ -96,6 +96,46 @@ if test "$(uname)" = "Darwin"
   brew install teensy_loader_cli
 
 else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
+  sudo apt install -y nala
+  sudo nala update
+  sudo nala install tmux -y
+  sudo nala install nvim -y
+  sudo nala install zellij -y
+
+  sudo nala install go -y
+  sudo nala install gum -y
+  sudo nala install vhs -y
+  sudo nala install delve -y
+
+  sudo nala install bat -y
+  sudo nala install fd -y
+  sudo nala install ripgrep -y
+  sudo nala install btop -y
+  sudo nala install fuck -y
+  sudo nala install zoxide -y
+  sudo nala install stow -y
+  sudo nala install forever -y
+  sudo nala install tldr -y
+  sudo nala install netdiscover -y
+
+  # Install zoxide
+  curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
+  # Install fzf
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  git pull --tags
+  git checkout 0.37.0
+  version=0.37.0 ~/.fzf/install
+
+  # Install eza
+  sudo nala install -y gpg
+  sudo mkdir -p /etc/apt/keyrings
+  wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+  echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+  sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+  sudo nala update
+  sudo nala install -y eza
+
 end
 
 rm -Rf $HOME/.local/share/omf

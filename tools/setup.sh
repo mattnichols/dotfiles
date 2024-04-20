@@ -95,12 +95,13 @@ if test "$(uname)" = "Darwin"
   brew install qmk/qmk/qmk
   brew install qmk-toolbox
   brew install teensy_loader_cli
+  brew install pt
+  brew install the_silver_searcher
 
 else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
   sudo apt install -y nala
   sudo nala update
   sudo nala install tmux -y
-  sudo nala install nvim -y
   sudo nala install zellij -y
 
   sudo nala install go -y
@@ -136,6 +137,14 @@ else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
   sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
   sudo nala update
   sudo nala install -y eza
+
+  # Install neovim
+  git clone --depth 1 https://github.com/neovim/neovim ~/.neovim
+  cd $HOME/.neovim
+  git pull --tags
+  git git checkout 0.9.5
+  make CMAKE_BUILD_TYPE=RelWithDebInfo
+  cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
 end
 

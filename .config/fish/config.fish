@@ -93,7 +93,6 @@ abbr h 'cd ~/'
 abbr c clear
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
-abbr v vim
 alias ls="eza --color=always --git --icons=always"
 abbr merge 'xrdb -merge ~/.Xresources'
 abbr q exit
@@ -121,7 +120,6 @@ abbr gl 'git smart-pull'
 abbr b 'bundle install'
 abbr bu 'bundle update'
 abbr bx 'bundle exec'
-abbr c z
 
 alias ea="nvim ~/"
 
@@ -136,12 +134,13 @@ abbr ls. 'ls -A | egrep "^\."'
 if command -q trash
     alias rm='trash'
 end
-alias z='zoxide'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias sshmux="bash ~/tools/sshmux "
+alias fzf-tmux="bash ~/tools/fzf-tmux "
 
 # Gradle
 alias gradle='gw'
@@ -252,6 +251,11 @@ if status is-interactive && test -e "$HOME/.jabba"
 
     #     set -e cwd
     # end
+end
+
+function touche
+    touch $argv[1]
+    chmod +x $argv[1]
 end
 
 function nvims
@@ -374,4 +378,5 @@ alias z=__zoxide_z
 abbr --erase zi &>/dev/null
 alias zi=__zoxide_zi
 
-thefuck --alias fk | source
+abbr c z
+

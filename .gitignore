@@ -10,3 +10,4 @@
 !.config/tmux/
 !.config/zellij/
 !.config/starship.toml
+.config/fish/fish_variables

@@ -271,9 +271,6 @@ function nvims
     NVIM_APPNAME="$config" $NVIMEX $argv
 end
 
-if status is-interactive && command -q starship
-    starship init fish | source
-end
 
 # if command -q zoxide
 #     zoxide init fish | source
@@ -380,3 +377,6 @@ alias zi=__zoxide_zi
 
 abbr c z
 
+if status is-interactive && command -q starship
+    starship init fish | source
+end

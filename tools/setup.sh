@@ -97,6 +97,10 @@ if test "$(uname)" = "Darwin"
   brew install pt
   brew install the_silver_searcher
 
+  # gradle wrapper gw. For Convenience when using gradle wrappers
+  brew tap gdubw/gng
+  brew install gng
+
 else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
   sudo apt install -y nala
   sudo nala update

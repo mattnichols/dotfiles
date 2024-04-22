@@ -15,6 +15,8 @@ git clone git@github.com:mattnichols/dotfiles.git "$HOME/.dotfiles"
 # git clone https://github.com/mattnichols/dotfiles.git "$HOME/.dotfiles"
 popd
 
+curl -sS https://starship.rs/install.sh | sh
+
 # Setup env (setup apt/brew and install fish)
 if [ "$(uname)" == "Darwin" ]; then
 
@@ -24,7 +26,6 @@ if [ "$(uname)" == "Darwin" ]; then
   # brew install fish # This doesn't work
   brew install stow
   brew install fzf
-  brew install starship
   brew install neofetch
   brew install trash
   brew install z

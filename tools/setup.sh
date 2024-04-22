@@ -116,9 +116,12 @@ else if test "$(expr substr $(uname -s) 1 5)" = "Linux"
   sudo nala install thefuck -y
   sudo nala install zoxide -y
   sudo nala install stow -y
+  sudo nala install sed -y
   sudo nala install forever -y
   sudo nala install tldr -y
   sudo nala install netdiscover -y
+  sudo nala install cmake -y
+  sudo nala install silversearcher-ag -y
 
   # Install zoxide
   curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash

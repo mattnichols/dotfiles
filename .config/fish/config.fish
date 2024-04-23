@@ -237,20 +237,25 @@ if status is-interactive && command -q pyenv
 end
 
 if status is-interactive && test -e "$HOME/.jabba"
-    [ -s "/Users/matthew.nichols/.jabba/jabba.fish" ]; and source "/Users/matthew.nichols/.jabba/jabba.fish"
+    [ -s "$HOME/.jabba/jabba.fish" ]; and source "$HOME/.jabba/jabba.fish"
+    export JABBA_INSTALLED=1
+end
 
-    # function __handle_jabba_stuff --on-variable PWD
-    #     # Source a .jabbarc file in a directory after changing to it, if it exists.
-    #     set -l cwd $PWD
-    #     if test -e .jabbarc
-    #         eval "jabba use" >/dev/null
-    #     else
-    #         jabba use default 1>/dev/null 2>&1
-    #         set cwd (dirname "$cwd")
-    #     end
+function __handle_jabba_stuff --on-variable PWD
+    if not test -e $JABBA_INSTALLED
+        return
+    end 
 
-    #     set -e cwd
-    # end
+    # Source a .jabbarc file in a directory after changing to it, if it exists.
+    set -l cwd $PWD
+    if test -e .jabbarc
+        eval "jabba use" >/dev/null
+    else
+        jabba use default 1>/dev/null 2>&1
+        set cwd (dirname "$cwd")
+    end
+
+    set -e cwd
 end
 
 function touche

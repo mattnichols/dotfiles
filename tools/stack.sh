@@ -1,4 +1,4 @@
-!# /bin/sh bash
+#!/bin/bash
 
 if test "$(uname)" = "Darwin"
 

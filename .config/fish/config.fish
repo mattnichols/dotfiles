@@ -242,7 +242,8 @@ if status is-interactive && test -e "$HOME/.jabba"
 end
 
 function __handle_jabba_stuff --on-variable PWD
-    if not test -e $JABBA_INSTALLED
+    if not test -n $JABBA_INSTALLED
+        echo "Jabba not installed"
         return
     end 
 

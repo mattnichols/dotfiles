@@ -1,0 +1,143 @@
+
+live_config_reload = true
+
+[colors.bright]
+black = "0x405860"
+blue = "0x6699cc"
+cyan = "0x5fb3b3"
+green = "0x99c794"
+magenta = "0xc594c5"
+red = "0xec5f67"
+white = "0xadb5c0"
+yellow = "0xfac863"
+
+[colors.normal]
+black = "0x29414f"
+blue = "0x6699cc"
+cyan = "0x5fb3b3"
+green = "0x99c794"
+magenta = "0xc594c5"
+red = "0xec5f67"
+white = "0x65737e"
+yellow = "0xfac863"
+
+[colors.primary]
+background = "0x1b2b34"
+foreground = "0xd8dee9"
+
+[font]
+size = 14.0
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "ClearHistory"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\f"
+key = "K"
+mode = "~Vi"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "NumpadAdd"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "NumpadSubtract"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "C"
+mode = "Vi"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Hide"
+key = "H"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Minimize"
+key = "M"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "btop \r"
+key = "H"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "nvim . \r"
+key = "N"
+mods = "Control|Shift"
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[scrolling]
+history = 10000
+multiplier = 2
+
+[shell]
+program = "/usr/local/bin/fish"
+
+[window]
+decorations = "transparent"
+opacity = 1.0
+
+[window.padding]
+x = 10
+y = 10

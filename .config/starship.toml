@@ -1,43 +1,41 @@
 # Configuration file for the Starship prompt
 # See: https://starship.rs/config/
 
+format = '$all'
+
 # Don't print a new line at the start of the prompt
-#add_newline = false
 command_timeout = 300
+
+[directory]
+truncation_length=3
+truncate_to_repo=false
 
 # Configure battery symbols
 [battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
-
-format = "$all"
+disabled = true
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
 
 [git_commit]
-commit_hash_length = 7
 disabled = false
+commit_hash_length = 7
 only_detached = false
 tag_disabled = false
 
-[java]
-disabled = true
+[git_branch]
+disabled = false
 
-prompt_order = [
-    "username",
-    "hostname",
-    "directory",
-    "git_commit",
-    "git_state",
-    "git_status",
-    "env_var",
-    "cmd_duration",
-    "line_break",
-    "jobs",
-    "battery",
-    "time",
-    "character"
-]
+[package]
+disabled = false
+
+
+[java]
+disabled = false
+format = '[${symbol}(${version})]($style)'
+symbol = '☕'
+
+[gradle]
+format = '[$symbol($version )]($style)'
+disabled = false

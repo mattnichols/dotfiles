@@ -19,6 +19,10 @@ fish_default_key_bindings
 # Load homebrew env
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Load nvm env
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && bash "/opt/homebrew/opt/nvm/nvm.sh"
+
 function fish_title -d 'Use PROCESS $PWD format, replacing /Users/username with ~'
     set realhome ~
     if test "$_" != fish

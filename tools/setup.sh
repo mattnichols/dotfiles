@@ -45,7 +45,7 @@ nvm install stable
 if test "$(uname)" = "Darwin"
 
   echo "Updating brews..."
-  brew tap caskroom/cask
+  brew tap homebrew/cask
   brew update
 
   brew cask install google-chrome

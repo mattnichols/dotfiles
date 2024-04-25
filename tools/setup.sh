@@ -33,14 +33,14 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-omf install nvm
+nvm install stable
 
 # Uninstall system node, if present
 nvm use system
 npm uninstall -g a_module
 
-# Install stable
-nvm install stable
+export JABBA_VERSION="0.11.2"
+curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash -s -- --skip-rc && . ~/.jabba/jabba.sh
 
 if test "$(uname)" = "Darwin"
 
@@ -90,6 +90,7 @@ if test "$(uname)" = "Darwin"
   brew install rbenv
   brew install cmatrix
   brew install tldr
+  brew install cmake
 
   brew install qmk/qmk/qmk
   brew install qmk-toolbox

@@ -21,7 +21,6 @@ curl -sS https://starship.rs/install.sh | sh
 if [ "$(uname)" == "Darwin" ]; then
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  sudo chown -R $(whoami) $(brew --prefix)/*
   
   # brew install fish # This doesn't work
   brew install stow

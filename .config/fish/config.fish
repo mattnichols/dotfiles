@@ -16,6 +16,9 @@ fish_default_key_bindings
 # set SPACEFISH_RUBY_SUFFIX ")"
 # set SPACEFISH_DIR_PREFIX ""
 
+# Load homebrew env
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 function fish_title -d 'Use PROCESS $PWD format, replacing /Users/username with ~'
     set realhome ~
     if test "$_" != fish
@@ -386,3 +389,4 @@ abbr c z
 if status is-interactive && command -q starship
     starship init fish | source
 end
+

@@ -206,10 +206,7 @@ alias java8='jabba use adopt@1.8.0-272'
 
 # alias bundler-multicore='number_of_cores=$(sysctl -n hw.ncpu)&&bundle config --global jobs $((number_of_cores - 1))'
 
-echo Ignoring Protobuf Deprecation Warnings...
 export PB_IGNORE_DEPRECATIONS=1
-
-echo Skipping Firebolt Warnings...
 export FIREBOLT_SKIP_WARNING=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 

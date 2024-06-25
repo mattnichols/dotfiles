@@ -199,6 +199,7 @@ alias sidekiq_batcave='igd nats sidekiq -q batcave'
 
 alias java17='jabba use openjdk@1.17.0'
 alias java8='jabba use adopt@1.8.0-272'
+alias idea="/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea --wait"
 
 #alias rails='jitless rails'
 #alias rspec='jitless rspec'
@@ -217,7 +218,7 @@ export XDG_CONFIG_HOME=$HOME/.config/
 
 alias nvim="NVIM_APPNAME=kickstart $NVIMEX"
 
-set PATH "$HOME/bin:/usr/local/bin:$PATH"
+set PATH "$HOME/bin:/usr/local/bin:/Applications/IntelliJ IDEA.app/Contents/MacOS:$PATH"
 
 # Hack to keep git cert registered
 # ssh-add -K ~/.ssh/id_ed25519
@@ -281,6 +282,9 @@ function nvims
     NVIM_APPNAME="$config" $NVIMEX $argv
 end
 
+function idea
+    open -na "IntelliJ IDEA" --args $argv &
+end
 
 # if command -q zoxide
 #     zoxide init fish | source
